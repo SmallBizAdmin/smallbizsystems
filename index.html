@@ -47,7 +47,6 @@
             font-size: 17px;
         }
 
-        /* Utility Classes */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -62,7 +61,6 @@
             background-color: var(--color-bg-alt);
         }
 
-        /* Typography */
         h1, h2, h3, h4 {
             font-family: var(--font-display);
             font-weight: 600;
@@ -85,41 +83,22 @@
             margin-bottom: 12px;
         }
 
-        h4 {
-            font-size: 1.125rem;
-            font-family: var(--font-body);
-            font-weight: 600;
-        }
-
         p {
             margin-bottom: 16px;
         }
 
-        .text-muted {
-            color: var(--color-text-muted);
-        }
-
-        .text-accent {
-            color: var(--color-accent);
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        /* Buttons */
         .btn {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            justify-content: center;
             padding: 16px 32px;
             font-family: var(--font-body);
-            font-size: 1rem;
+            font-size: 16px;
             font-weight: 600;
             text-decoration: none;
             border-radius: var(--radius-sm);
-            cursor: pointer;
             transition: all 0.3s ease;
+            cursor: pointer;
             border: none;
         }
 
@@ -130,17 +109,6 @@
 
         .btn-primary:hover {
             background-color: var(--color-accent-light);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .btn-secondary {
-            background-color: var(--color-primary);
-            color: var(--color-white);
-        }
-
-        .btn-secondary:hover {
-            background-color: var(--color-primary-light);
             transform: translateY(-2px);
             box-shadow: var(--shadow-md);
         }
@@ -171,8 +139,8 @@
 
         .nav-inner {
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
         }
 
         .nav-logo {
@@ -189,8 +157,8 @@
 
         .nav-links {
             display: flex;
-            gap: 32px;
             list-style: none;
+            gap: 32px;
         }
 
         .nav-links a {
@@ -209,28 +177,16 @@
             gap: 12px;
         }
 
-        @media (max-width: 768px) {
-            .nav-links, .nav-cta {
-                display: none;
-            }
+        .nav-cta .btn {
+            padding: 12px 20px;
+            font-size: 14px;
         }
 
         /* Hero Section */
         .hero {
-            padding: 160px 0 100px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: -200px;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(196, 92, 38, 0.08) 0%, transparent 70%);
-            border-radius: 50%;
+            padding-top: 140px;
+            padding-bottom: 80px;
+            background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-alt) 100%);
         }
 
         .hero-grid {
@@ -240,37 +196,14 @@
             align-items: center;
         }
 
-        @media (max-width: 900px) {
-            .hero-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
-
         .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background-color: var(--color-bg-alt);
-            color: var(--color-primary);
+            display: inline-block;
+            background-color: var(--color-primary);
+            color: var(--color-white);
             padding: 8px 16px;
-            border-radius: 100px;
-            font-size: 0.875rem;
+            border-radius: 50px;
+            font-size: 14px;
             font-weight: 500;
-            margin-bottom: 24px;
-            border: 1px solid var(--color-border);
-        }
-
-        .hero-badge::before {
-            content: '📍';
-        }
-
-        .hero h1 {
             margin-bottom: 24px;
         }
 
@@ -282,65 +215,55 @@
             font-size: 1.25rem;
             color: var(--color-text-muted);
             margin-bottom: 32px;
-            max-width: 520px;
         }
 
         .hero-ctas {
             display: flex;
             gap: 16px;
-            flex-wrap: wrap;
-        }
-
-        .hero-image {
-            position: relative;
-        }
-
-        .hero-image-main {
-            width: 100%;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-lg);
-            /* Placeholder gradient for image */
-            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
-            aspect-ratio: 4/3;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--color-white);
-            font-family: var(--font-display);
-            font-size: 1.25rem;
+            margin-bottom: 48px;
         }
 
         .hero-stats {
             display: flex;
-            gap: 40px;
-            margin-top: 48px;
-            padding-top: 32px;
-            border-top: 1px solid var(--color-border);
+            gap: 48px;
         }
 
         .hero-stat-number {
             font-family: var(--font-display);
             font-size: 2.5rem;
             font-weight: 700;
-            color: var(--color-accent);
-            line-height: 1;
+            color: var(--color-primary);
         }
 
         .hero-stat-label {
-            font-size: 0.875rem;
+            font-size: 14px;
             color: var(--color-text-muted);
-            margin-top: 4px;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-image-main {
+            width: 400px;
+            height: 450px;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-white);
+            font-size: 1.25rem;
+            box-shadow: var(--shadow-lg);
         }
 
         /* Problem Section */
         .problem {
-            background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
-            color: var(--color-white);
             padding: 80px 0;
         }
 
         .problem h2 {
-            color: var(--color-white);
             text-align: center;
             margin-bottom: 48px;
         }
@@ -351,18 +274,17 @@
             gap: 32px;
         }
 
-        @media (max-width: 768px) {
-            .problem-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
         .problem-card {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background-color: var(--color-white);
             padding: 32px;
             border-radius: var(--radius-md);
-            text-align: center;
+            border: 1px solid var(--color-border);
+            transition: all 0.3s ease;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
         }
 
         .problem-icon {
@@ -371,16 +293,22 @@
         }
 
         .problem-card h3 {
-            color: var(--color-white);
+            font-size: 1.125rem;
             margin-bottom: 12px;
         }
 
         .problem-card p {
-            opacity: 0.85;
+            color: var(--color-text-muted);
+            font-size: 15px;
             margin-bottom: 0;
         }
 
         /* Services Section */
+        .services {
+            padding: 100px 0;
+            background-color: var(--color-bg-alt);
+        }
+
         .services-header {
             text-align: center;
             max-width: 700px;
@@ -393,21 +321,30 @@
             gap: 32px;
         }
 
-        @media (max-width: 900px) {
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
         .service-card {
-            background: var(--color-white);
-            border-radius: var(--radius-md);
+            background-color: var(--color-white);
             padding: 40px;
+            border-radius: var(--radius-md);
             box-shadow: var(--shadow-sm);
-            border: 1px solid var(--color-border);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background-color: var(--color-accent);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleY(1);
         }
 
         .service-card:hover {
@@ -415,120 +352,76 @@
             box-shadow: var(--shadow-md);
         }
 
-        .service-card.featured {
-            border: 2px solid var(--color-accent);
-        }
-
-        .service-card.featured::before {
-            content: 'MOST POPULAR';
-            position: absolute;
-            top: 20px;
-            right: -35px;
-            background: var(--color-accent);
-            color: var(--color-white);
-            padding: 4px 40px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            transform: rotate(45deg);
-        }
-
-        .service-icon {
-            width: 56px;
-            height: 56px;
-            background: var(--color-bg-alt);
-            border-radius: var(--radius-sm);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
+        .service-number {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--color-border);
+            margin-bottom: 16px;
         }
 
         .service-card h3 {
-            margin-bottom: 8px;
+            font-size: 1.375rem;
+            margin-bottom: 16px;
+        }
+
+        .service-card p {
+            color: var(--color-text-muted);
+            margin-bottom: 24px;
         }
 
         .service-price {
             font-family: var(--font-display);
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: var(--color-accent);
-            margin-bottom: 16px;
-        }
-
-        .service-price span {
-            font-size: 1rem;
-            font-weight: 400;
-            color: var(--color-text-muted);
-        }
-
-        .service-desc {
-            color: var(--color-text-muted);
-            margin-bottom: 24px;
-        }
-
-        .service-features {
-            list-style: none;
-            margin-bottom: 24px;
-        }
-
-        .service-features li {
-            padding: 8px 0;
-            padding-left: 28px;
-            position: relative;
-            color: var(--color-text-muted);
-        }
-
-        .service-features li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--color-accent);
+            font-size: 1.25rem;
             font-weight: 600;
+            color: var(--color-accent);
         }
 
-        /* Case Studies */
-        .cases-grid {
+        /* Results Section */
+        .results {
+            padding: 100px 0;
+        }
+
+        .results-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .results-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 32px;
         }
 
-        @media (max-width: 900px) {
-            .cases-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .case-card {
-            background: var(--color-white);
+        .result-card {
+            background-color: var(--color-white);
             border-radius: var(--radius-md);
             overflow: hidden;
             box-shadow: var(--shadow-sm);
-            border: 1px solid var(--color-border);
             transition: all 0.3s ease;
         }
 
-        .case-card:hover {
+        .result-card:hover {
             transform: translateY(-4px);
             box-shadow: var(--shadow-md);
         }
 
-        .case-image {
-            height: 180px;
+        .result-image {
+            height: 200px;
             background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
+            color: var(--color-white);
         }
 
-        .case-content {
+        .result-content {
             padding: 28px;
         }
 
-        .case-industry {
-            font-size: 0.75rem;
+        .result-industry {
+            font-size: 12px;
             text-transform: uppercase;
             letter-spacing: 1px;
             color: var(--color-accent);
@@ -536,125 +429,126 @@
             margin-bottom: 8px;
         }
 
-        .case-card h3 {
+        .result-card h3 {
             font-size: 1.25rem;
             margin-bottom: 12px;
         }
 
-        .case-result {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 16px;
-            background: var(--color-bg-alt);
-            border-radius: var(--radius-sm);
-            margin-top: 16px;
+        .result-card p {
+            color: var(--color-text-muted);
+            font-size: 15px;
+            margin-bottom: 16px;
         }
 
-        .case-result-number {
+        .result-stat {
             font-family: var(--font-display);
-            font-size: 1.5rem;
+            font-size: 2rem;
             font-weight: 700;
-            color: var(--color-accent);
+            color: var(--color-primary);
         }
 
-        .case-result-label {
-            font-size: 0.875rem;
+        .result-stat-label {
+            font-size: 14px;
             color: var(--color-text-muted);
         }
 
-        .case-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--color-primary);
-            font-weight: 500;
-            text-decoration: none;
-            margin-top: 16px;
+        /* How It Works */
+        .how-it-works {
+            padding: 100px 0;
+            background-color: var(--color-bg-alt);
         }
 
-        .case-link:hover {
-            color: var(--color-accent);
+        .how-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
         }
 
-        /* Lead Magnet Section */
-        .lead-magnet {
-            background: linear-gradient(135deg, var(--color-accent) 0%, #D86A35 100%);
+        .how-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+        }
+
+        .how-step {
+            text-align: center;
+        }
+
+        .how-number {
+            width: 60px;
+            height: 60px;
+            background-color: var(--color-accent);
             color: var(--color-white);
-            padding: 80px 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .lead-magnet::before {
-            content: '';
-            position: absolute;
-            top: -100px;
-            right: -100px;
-            width: 400px;
-            height: 400px;
-            background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
         }
 
-        .lead-magnet-grid {
+        .how-step h3 {
+            font-size: 1.125rem;
+            margin-bottom: 8px;
+        }
+
+        .how-step p {
+            font-size: 15px;
+            color: var(--color-text-muted);
+        }
+
+        /* Download Section */
+        .download {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+            color: var(--color-white);
+        }
+
+        .download-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 60px;
             align-items: center;
         }
 
-        @media (max-width: 900px) {
-            .lead-magnet-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-        }
-
-        .lead-magnet h2 {
+        .download h2 {
             color: var(--color-white);
-            margin-bottom: 16px;
         }
 
-        .lead-magnet-text {
-            font-size: 1.125rem;
+        .download p {
             opacity: 0.9;
-            margin-bottom: 24px;
+            font-size: 1.125rem;
         }
 
-        .lead-magnet-benefits {
+        .download-features {
             list-style: none;
-            margin-bottom: 32px;
+            margin: 24px 0;
         }
 
-        .lead-magnet-benefits li {
+        .download-features li {
             padding: 8px 0;
-            padding-left: 32px;
+            padding-left: 28px;
             position: relative;
         }
 
-        .lead-magnet-benefits li::before {
-            content: '📄';
+        .download-features li::before {
+            content: '✓';
             position: absolute;
             left: 0;
+            color: var(--color-accent);
+            font-weight: bold;
         }
 
-        .lead-magnet-form {
-            background: var(--color-white);
+        .download-form {
+            background-color: var(--color-white);
             padding: 40px;
             border-radius: var(--radius-md);
             box-shadow: var(--shadow-lg);
         }
 
-        .lead-magnet-form h3 {
-            color: var(--color-primary);
-            margin-bottom: 8px;
-            font-size: 1.25rem;
-        }
-
-        .lead-magnet-form p {
-            color: var(--color-text-muted);
-            font-size: 0.9rem;
+        .download-form h3 {
             margin-bottom: 24px;
         }
 
@@ -665,9 +559,8 @@
         .form-group label {
             display: block;
             font-weight: 500;
+            margin-bottom: 6px;
             color: var(--color-text);
-            margin-bottom: 8px;
-            font-size: 0.9rem;
         }
 
         .form-group input {
@@ -676,7 +569,7 @@
             border: 1px solid var(--color-border);
             border-radius: var(--radius-sm);
             font-family: var(--font-body);
-            font-size: 1rem;
+            font-size: 16px;
             transition: border-color 0.2s;
         }
 
@@ -685,223 +578,189 @@
             border-color: var(--color-accent);
         }
 
-        .lead-magnet-form .btn {
+        .download-form .btn {
             width: 100%;
-            justify-content: center;
-        }
-
-        .form-privacy {
-            font-size: 0.75rem;
-            color: var(--color-text-muted);
-            margin-top: 12px;
-            text-align: center;
-        }
-
-        /* How It Works */
-        .how-it-works {
-            background: var(--color-bg-alt);
-        }
-
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 32px;
-        }
-
-        @media (max-width: 900px) {
-            .steps {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 600px) {
-            .steps {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .step {
-            text-align: center;
-            position: relative;
-        }
-
-        .step::after {
-            content: '→';
-            position: absolute;
-            right: -20px;
-            top: 40px;
-            font-size: 1.5rem;
-            color: var(--color-border);
-        }
-
-        .step:last-child::after {
-            display: none;
-        }
-
-        @media (max-width: 900px) {
-            .step::after {
-                display: none;
-            }
-        }
-
-        .step-number {
-            width: 64px;
-            height: 64px;
-            background: var(--color-white);
-            border: 2px solid var(--color-accent);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-family: var(--font-display);
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--color-accent);
-        }
-
-        .step h4 {
-            margin-bottom: 8px;
-            color: var(--color-primary);
-        }
-
-        .step p {
-            font-size: 0.9rem;
-            color: var(--color-text-muted);
-            margin-bottom: 0;
+            margin-top: 8px;
         }
 
         /* About Section */
+        .about {
+            padding: 100px 0;
+        }
+
         .about-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1.5fr;
             gap: 60px;
             align-items: center;
         }
 
-        @media (max-width: 900px) {
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-        }
-
         .about-image {
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-        }
-
-        .about-image img {
             width: 100%;
-            display: block;
-        }
-
-        .about-image-placeholder {
+            aspect-ratio: 4/5;
             background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
-            aspect-ratio: 4/3;
+            border-radius: var(--radius-lg);
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--color-white);
-            font-size: 1rem;
-            padding: 40px;
-            text-align: center;
+            box-shadow: var(--shadow-lg);
         }
 
         .about-content h2 {
             margin-bottom: 24px;
         }
 
+        .about-content p {
+            color: var(--color-text-muted);
+            margin-bottom: 24px;
+        }
+
         .about-credentials {
             display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            margin-top: 24px;
+            gap: 40px;
+            margin-top: 32px;
+            padding-top: 32px;
+            border-top: 1px solid var(--color-border);
         }
 
         .credential {
             display: flex;
             align-items: center;
-            gap: 8px;
-            background: var(--color-bg-alt);
-            padding: 10px 16px;
-            border-radius: 100px;
-            font-size: 0.875rem;
-            font-weight: 500;
+            gap: 12px;
         }
 
-        /* CTA Section */
-        .cta {
-            text-align: center;
-            padding: 100px 0;
-        }
-
-        .cta h2 {
-            margin-bottom: 16px;
-        }
-
-        .cta p {
-            font-size: 1.25rem;
-            color: var(--color-text-muted);
-            max-width: 600px;
-            margin: 0 auto 32px;
-        }
-
-        .cta-buttons {
+        .credential-icon {
+            width: 48px;
+            height: 48px;
+            background-color: var(--color-bg-alt);
+            border-radius: 50%;
             display: flex;
-            gap: 16px;
+            align-items: center;
             justify-content: center;
-            flex-wrap: wrap;
+            font-size: 1.25rem;
+        }
+
+        .credential-text {
+            font-size: 14px;
+            color: var(--color-text-muted);
+        }
+
+        .credential-text strong {
+            display: block;
+            color: var(--color-text);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background-color: var(--color-bg-alt);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .contact-form {
+            background-color: var(--color-white);
+            padding: 40px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .contact-form h3 {
+            margin-bottom: 24px;
+        }
+
+        .contact-form textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-sm);
+            font-family: var(--font-body);
+            font-size: 16px;
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--color-accent);
+        }
+
+        .contact-info h2 {
+            margin-bottom: 24px;
+        }
+
+        .contact-info p {
+            color: var(--color-text-muted);
+            margin-bottom: 32px;
+        }
+
+        .contact-details {
+            list-style: none;
+        }
+
+        .contact-details li {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .contact-details li:last-child {
+            border-bottom: none;
+        }
+
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            background-color: var(--color-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            box-shadow: var(--shadow-sm);
         }
 
         /* Footer */
         .footer {
-            background: var(--color-primary);
+            background-color: var(--color-primary);
             color: var(--color-white);
             padding: 60px 0 30px;
         }
 
         .footer-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 40px;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
             margin-bottom: 40px;
         }
 
-        @media (max-width: 900px) {
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .footer-brand {
+        .footer-logo {
             font-family: var(--font-display);
             font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 16px;
         }
 
-        .footer-brand span {
+        .footer-logo span {
             color: var(--color-accent);
         }
 
-        .footer-desc {
+        .footer p {
             opacity: 0.8;
-            font-size: 0.9rem;
-            line-height: 1.7;
+            margin-bottom: 0;
         }
 
         .footer h4 {
             color: var(--color-white);
-            margin-bottom: 16px;
             font-size: 1rem;
+            margin-bottom: 20px;
         }
 
         .footer-links {
@@ -909,48 +768,89 @@
         }
 
         .footer-links li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .footer-links a {
-            color: rgba(255, 255, 255, 0.8);
+            color: var(--color-white);
+            opacity: 0.8;
             text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.2s;
+            transition: opacity 0.2s;
         }
 
         .footer-links a:hover {
-            color: var(--color-white);
+            opacity: 1;
         }
 
         .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
             padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
             text-align: center;
+            font-size: 14px;
             opacity: 0.7;
-            font-size: 0.875rem;
         }
 
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-grid,
+            .download-grid,
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .how-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .hero-image-main {
+                width: 100%;
+                max-width: 400px;
+                height: 350px;
             }
         }
 
-        .fade-in {
-            animation: fadeInUp 0.6s ease forwards;
-        }
+        @media (max-width: 768px) {
+            .nav-links,
+            .nav-cta {
+                display: none;
+            }
 
-        .delay-1 { animation-delay: 0.1s; }
-        .delay-2 { animation-delay: 0.2s; }
-        .delay-3 { animation-delay: 0.3s; }
-        .delay-4 { animation-delay: 0.4s; }
+            .problem-grid,
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .how-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .hero {
+                padding-top: 100px;
+            }
+
+            .about-credentials {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -976,9 +876,9 @@
         <div class="container">
             <div class="hero-grid">
                 <div class="hero-content">
-                    <span class="hero-badge">Brisbane-Based Systems Consultant</span>
+                    <span class="hero-badge">Brisbane-Based Systems Consultants</span>
                     <h1>Your competitors are <span>automating.</span><br>Are you keeping up?</h1>
-                    <p class="hero-text">I help Brisbane small businesses implement systems that reduce errors, save time, and deliver the seamless customer experience your competitors are already offering.</p>
+                    <p class="hero-text">We help Brisbane small businesses implement systems that reduce errors, save time, and deliver the seamless customer experience your competitors are already offering.</p>
                     <div class="hero-ctas">
                         <a href="#contact" class="btn btn-primary">Book Free Assessment →</a>
                         <a href="#download" class="btn btn-outline">Download Free Guide</a>
@@ -989,14 +889,13 @@
                             <div class="hero-stat-label">More revenue per employee<br>with digital systems*</div>
                         </div>
                         <div>
-                            <div class="hero-stat-number">221K+</div>
-                            <div class="hero-stat-label">Small businesses in<br>Greater Brisbane</div>
+                            <div class="hero-stat-number">89%</div>
+                            <div class="hero-stat-label">of small businesses<br>aren't fully digital yet</div>
                         </div>
                     </div>
                 </div>
                 <div class="hero-image">
                     <div class="hero-image-main">
-                        <!-- Replace with actual image -->
                         [Your Photo Here]
                     </div>
                 </div>
@@ -1012,266 +911,263 @@
                 <div class="problem-card">
                     <div class="problem-icon">📦</div>
                     <h3>"We bought the software but never set it up properly"</h3>
-                    <p>You're paying for systems gathering digital dust. The CRM has 12 contacts. The project management tool shows last year's tasks.</p>
+                    <p>You're paying for systems gathering digital dust. The CRM has 12 contacts. The accounting integration was "too complicated." Sound familiar?</p>
                 </div>
                 <div class="problem-card">
-                    <div class="problem-icon">📋</div>
-                    <h3>"Everything is still manual and we keep making mistakes"</h3>
-                    <p>Invoices go out late. Customer details get lost in email threads. The same information is entered three times.</p>
+                    <div class="problem-icon">⏰</div>
+                    <h3>"I spend hours on admin that should be automated"</h3>
+                    <p>Manual data entry. Copy-pasting between systems. Creating the same report every week. Your time is worth more than this.</p>
                 </div>
                 <div class="problem-card">
-                    <div class="problem-icon">📱</div>
-                    <h3>"Our customers expect more than we can deliver"</h3>
-                    <p>They want online booking, instant quotes, real-time updates. Your competitors offer it. You're still taking appointments by phone.</p>
+                    <div class="problem-icon">🤷</div>
+                    <h3>"I don't even know what I don't know"</h3>
+                    <p>There's probably a system that solves your exact problem. You just haven't found it yet. Or you found it and got overwhelmed.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="section">
+    <section id="services" class="services">
         <div class="container">
             <div class="services-header">
-                <h2>Services that get results</h2>
-                <p class="text-muted">I don't just give you advice and disappear. I implement, document, train, and hand over systems that actually work.</p>
+                <h2>How We Can Help</h2>
+                <p>Four ways to get your systems working as hard as you do. No ongoing contracts—just projects that get done.</p>
             </div>
             <div class="services-grid">
-                <!-- Service 1 -->
-                <div class="service-card featured">
-                    <div class="service-icon">🔍</div>
+                <div class="service-card">
+                    <div class="service-number">01</div>
                     <h3>Systems Health Check</h3>
-                    <div class="service-price">$1,500 - $2,500 <span>fixed fee</span></div>
-                    <p class="service-desc">A comprehensive audit of your current processes and technology, with a clear roadmap of what to fix, what to add, and what's wasting your money.</p>
-                    <ul class="service-features">
-                        <li>2-hour discovery session (on-site or video)</li>
-                        <li>Full review of current processes & systems</li>
-                        <li>Written report with specific recommendations</li>
-                        <li>SaaS product recommendations with costs</li>
-                        <li>Priority-ranked implementation roadmap</li>
-                        <li>1-hour walkthrough of findings</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-primary">Get Your Health Check</a>
+                    <p>Don't know where to start? We'll audit your current tech stack, identify what's underutilized, and give you a prioritized action plan. No jargon, just clarity.</p>
+                    <div class="service-price">From $1,500</div>
                 </div>
-
-                <!-- Service 2 -->
                 <div class="service-card">
-                    <div class="service-icon">🚀</div>
-                    <h3>Implementation Package</h3>
-                    <div class="service-price">$2,500 - $8,000 <span>fixed fee</span></div>
-                    <p class="service-desc">Whether you're starting fresh or rescuing a half-finished setup, I'll get your systems working properly and your team trained.</p>
-                    <ul class="service-features">
-                        <li>Full setup & configuration of one system</li>
-                        <li>Data migration from existing tools</li>
-                        <li>Custom workflows & automation rules</li>
-                        <li>User documentation (how-to guides)</li>
-                        <li>2 hours of hands-on team training</li>
-                        <li>30 days of email support</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-secondary">Discuss Your Project</a>
+                    <div class="service-number">02</div>
+                    <h3>Implement What You Own</h3>
+                    <p>Got software you're paying for but not using? We'll get it set up properly, migrate your data, train your team, and document everything. Finally get value from that subscription.</p>
+                    <div class="service-price">From $2,500</div>
                 </div>
-
-                <!-- Service 3 -->
                 <div class="service-card">
-                    <div class="service-icon">⚡</div>
-                    <h3>Optimisation Sprint</h3>
-                    <div class="service-price">$1,500 - $3,000 <span>fixed fee</span></div>
-                    <p class="service-desc">You've got the systems. Let's make them work harder. Automation rules, macros, better workflows—without adding new subscriptions.</p>
-                    <ul class="service-features">
-                        <li>Audit of one existing system</li>
-                        <li>Configuration improvements</li>
-                        <li>Automation setup (bank feeds, workflows)</li>
-                        <li>Custom macros for Excel/reporting</li>
-                        <li>Documentation of all changes</li>
-                        <li>Before/after performance comparison</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-secondary">Optimise My Systems</a>
+                    <div class="service-number">03</div>
+                    <h3>Fresh Implementation</h3>
+                    <p>Need a new system? We'll recommend the right solution for your size and budget, then handle the entire implementation. You focus on your business while we handle the technical setup.</p>
+                    <div class="service-price">From $3,500</div>
                 </div>
-
-                <!-- Service 4 -->
                 <div class="service-card">
-                    <div class="service-icon">🤝</div>
-                    <h3>Ongoing Support Retainer</h3>
-                    <div class="service-price">$300 - $500 <span>per month</span></div>
-                    <p class="service-desc">For businesses that want a systems expert on call. Quick questions, minor tweaks, and peace of mind.</p>
-                    <ul class="service-features">
-                        <li>Priority email & phone support</li>
-                        <li>2 hours of included work per month</li>
-                        <li>Quarterly systems review</li>
-                        <li>New feature setup as platforms update</li>
-                        <li>Discounted rates on larger projects</li>
-                        <li>Cancel anytime—no lock-in</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-secondary">Get Ongoing Support</a>
+                    <div class="service-number">04</div>
+                    <h3>Optimize & Automate</h3>
+                    <p>Your systems work but could work smarter. We'll add automations, build integrations, create macros, and eliminate the repetitive tasks eating your time.</p>
+                    <div class="service-price">From $2,000</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Case Studies Section -->
-    <section id="results" class="section section-alt">
+    <!-- Results Section -->
+    <section id="results" class="results">
         <div class="container">
-            <div class="services-header">
-                <h2>Real results for Brisbane businesses</h2>
-                <p class="text-muted">Here's what happens when systems actually work.</p>
+            <div class="results-header">
+                <h2>Real Results for Real Businesses</h2>
+                <p>Brisbane businesses that stopped losing ground and started gaining advantage.</p>
             </div>
-            <div class="cases-grid">
-                <!-- Case Study 1 -->
-                <div class="case-card">
-                    <div class="case-image">🏗️</div>
-                    <div class="case-content">
-                        <div class="case-industry">Civil Construction</div>
-                        <h3>Bank reconciliation time cut by 80%</h3>
-                        <p class="text-muted">A civil contractor was spending 15+ hours per month manually matching payments. Automated bank feed rules and payment matching now handle 90% automatically.</p>
-                        <div class="case-result">
-                            <div class="case-result-number">12hrs</div>
-                            <div class="case-result-label">saved per month on reconciliation</div>
-                        </div>
-                        <a href="case-study-civil.pdf" class="case-link">Read full case study →</a>
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="result-image">[Case Study Image]</div>
+                    <div class="result-content">
+                        <div class="result-industry">Accounting Practice</div>
+                        <h3>CIS Australia</h3>
+                        <p>Automated bank fee reconciliation and reporting workflows, eliminating 6+ hours of manual work weekly.</p>
+                        <div class="result-stat">6 hrs</div>
+                        <div class="result-stat-label">saved per week</div>
                     </div>
                 </div>
-
-                <!-- Case Study 2 -->
-                <div class="case-card">
-                    <div class="case-image">🔧</div>
-                    <div class="case-content">
-                        <div class="case-industry">Trades & Services</div>
-                        <h3>Google reviews jumped from 8 to 47</h3>
-                        <p class="text-muted">A plumber had happy customers but no reviews. Automated post-job emails with one-click review links changed everything in 4 months.</p>
-                        <div class="case-result">
-                            <div class="case-result-number">487%</div>
-                            <div class="case-result-label">increase in Google reviews</div>
-                        </div>
-                        <a href="case-study-trades.pdf" class="case-link">Read full case study →</a>
+                <div class="result-card">
+                    <div class="result-image">[Case Study Image]</div>
+                    <div class="result-content">
+                        <div class="result-industry">Trades & Construction</div>
+                        <h3>Brisbane Plumbing Co</h3>
+                        <p>Implemented job management system with automated quoting and scheduling. No more lost leads or double-bookings.</p>
+                        <div class="result-stat">40%</div>
+                        <div class="result-stat-label">faster quoting</div>
                     </div>
                 </div>
-
-                <!-- Case Study 3 -->
-                <div class="case-card">
-                    <div class="case-image">🏢</div>
-                    <div class="case-content">
-                        <div class="case-industry">Professional Services</div>
-                        <h3>$18K saved on missed invoices</h3>
-                        <p class="text-muted">A consulting firm was losing track of billable work. CRM integration with time tracking and automated invoicing caught everything.</p>
-                        <div class="case-result">
-                            <div class="case-result-number">$18K</div>
-                            <div class="case-result-label">recovered in first 6 months</div>
-                        </div>
-                        <a href="case-study-professional.pdf" class="case-link">Read full case study →</a>
+                <div class="result-card">
+                    <div class="result-image">[Case Study Image]</div>
+                    <div class="result-content">
+                        <div class="result-industry">Professional Services</div>
+                        <h3>Southside Physio</h3>
+                        <p>Set up online booking, automated reminders, and Medicare claiming integration. Reduced no-shows by 65%.</p>
+                        <div class="result-stat">65%</div>
+                        <div class="result-stat-label">fewer no-shows</div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Lead Magnet Section -->
-    <section id="download" class="lead-magnet">
-        <div class="container">
-            <div class="lead-magnet-grid">
-                <div>
-                    <h2>Free: The Small Business Systems Self-Assessment</h2>
-                    <p class="lead-magnet-text">Not sure where to start? This 15-minute self-assessment will help you identify your biggest systems gaps—plus 10 quick wins you can implement yourself this week.</p>
-                    <ul class="lead-magnet-benefits">
-                        <li>20-question diagnostic across 5 key areas</li>
-                        <li>Instant scoring with priority recommendations</li>
-                        <li>10 "quick wins" you can do today—no consultant required</li>
-                        <li>Recommended tools for each problem area</li>
-                        <li>Typical cost ranges so you can budget</li>
-                    </ul>
-                </div>
-                <div class="lead-magnet-form">
-                    <h3>Get your free assessment guide</h3>
-                    <p>Enter your details and I'll send it straight to your inbox.</p>
-                    <form action="#" method="POST">
-                        <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" name="name" placeholder="e.g. Sarah Mitchell" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" placeholder="e.g. sarah@yourbusiness.com.au" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="business">Business Name (optional)</label>
-                            <input type="text" id="business" name="business" placeholder="e.g. Mitchell's Plumbing">
-                        </div>
-                        <button type="submit" class="btn btn-primary">Send Me The Guide →</button>
-                        <p class="form-privacy">🔒 No spam, ever. Your email stays private.</p>
-                    </form>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- How It Works -->
-    <section id="how" class="section how-it-works">
+    <section id="how" class="how-it-works">
         <div class="container">
-            <div class="services-header">
-                <h2>How it works</h2>
-                <p class="text-muted">Simple, transparent, and designed to respect your time.</p>
+            <div class="how-header">
+                <h2>How It Works</h2>
+                <p>Simple, straightforward process. No surprises.</p>
             </div>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h4>Free 15-Min Call</h4>
-                    <p>Tell me what's not working. I'll tell you if I can help (and if I can't, I'll point you in the right direction).</p>
+            <div class="how-grid">
+                <div class="how-step">
+                    <div class="how-number">1</div>
+                    <h3>Discovery Call</h3>
+                    <p>30-minute chat to understand your business, pain points, and goals. No cost, no obligation.</p>
                 </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h4>Health Check</h4>
-                    <p>I dig into your processes and systems. You get a written report with exactly what to do and what it'll cost.</p>
+                <div class="how-step">
+                    <div class="how-number">2</div>
+                    <h3>Systems Assessment</h3>
+                    <p>We dig into your current setup and identify the highest-impact opportunities.</p>
                 </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h4>Implementation</h4>
-                    <p>I build it, configure it, migrate your data, and train your team. You don't lift a finger.</p>
+                <div class="how-step">
+                    <div class="how-number">3</div>
+                    <h3>Fixed-Price Proposal</h3>
+                    <p>Clear scope, clear timeline, clear price. You know exactly what you're getting.</p>
                 </div>
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <h4>Handover</h4>
-                    <p>You get documentation, training, and 30 days of support. Then you're self-sufficient.</p>
+                <div class="how-step">
+                    <div class="how-number">4</div>
+                    <h3>Implementation</h3>
+                    <p>We handle the technical work. You get documentation and training. Then you're off and running.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="download">
+        <div class="container">
+            <div class="download-grid">
+                <div class="download-content">
+                    <h2>Free: Systems Self-Assessment Guide</h2>
+                    <p>20 questions to identify where your business systems are costing you time, money, and competitive advantage.</p>
+                    <ul class="download-features">
+                        <li>Identify your biggest system gaps in 10 minutes</li>
+                        <li>Benchmark against industry best practices</li>
+                        <li>Get a prioritized action list</li>
+                        <li>No fluff, no sales pitch—just useful clarity</li>
+                    </ul>
+                </div>
+                <div class="download-form">
+                    <h3>Get Your Free Guide</h3>
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="business">Business Name</label>
+                            <input type="text" id="business" name="business">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Download Free Guide →</button>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="section">
+    <section id="about" class="about">
         <div class="container">
             <div class="about-grid">
                 <div class="about-image">
-                    <div class="about-image-placeholder">
-                        <!-- Replace with actual image from smallbizadmin.com.au -->
-                        [Your Photo Here]<br><br>
-                        Husband & wife team with 20+ years of admin & systems experience
-                    </div>
+                    [Your Photo Here]
                 </div>
                 <div class="about-content">
-                    <h2>Brisbane-based. Small business focused.</h2>
-                    <p>I'm not a big consultancy that'll send you a junior and bill you for a senior. I'm a Brisbane-based systems specialist who actually does the work.</p>
-                    <p>My background spans accounting software (MYOB, Xero), CRM implementation, automation, and two decades of working inside small businesses. I know what it's like to run on tight margins and wear multiple hats.</p>
-                    <p>I focus on practical, affordable solutions using tools that already exist in the marketplace—not custom software that costs a fortune and breaks when I leave.</p>
-                    <p><strong>My promise:</strong> Fixed prices, no jargon, and systems that actually work after I'm gone.</p>
+                    <h2>G'day, we're [Your Names]</h2>
+                    <p>We've spent years in IT systems implementation and accounting practice management. We've seen how the right systems transform businesses—and how the wrong approach wastes thousands.</p>
+                    <p>Here's what we believe: Admin doesn't make you money. The goal isn't to cut your team—it's to free them up for work that actually grows your business. Systems should serve you, not the other way around.</p>
+                    <p>We work with Brisbane small businesses because we know this market. We understand the challenges of running a local operation and competing against businesses with bigger tech budgets.</p>
+                    <p>Our job is to level that playing field.</p>
                     <div class="about-credentials">
-                        <div class="credential">📍 Albany Creek, Brisbane</div>
-                        <div class="credential">💼 20+ Years Experience</div>
-                        <div class="credential">🔧 MYOB & Xero Certified</div>
-                        <div class="credential">🤝 Local Business Owner</div>
+                        <div class="credential">
+                            <div class="credential-icon">👫</div>
+                            <div class="credential-text">
+                                <strong>Husband & Wife Team</strong>
+                                20+ years combined experience
+                            </div>
+                        </div>
+                        <div class="credential">
+                            <div class="credential-icon">💼</div>
+                            <div class="credential-text">
+                                <strong>IT + Admin</strong>
+                                Systems implementation & practice management
+                            </div>
+                        </div>
+                        <div class="credential">
+                            <div class="credential-icon">📍</div>
+                            <div class="credential-text">
+                                <strong>Local Focus</strong>
+                                Brisbane-based, Brisbane-focused
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section id="contact" class="cta section-alt">
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
         <div class="container">
-            <h2>Ready to stop falling behind?</h2>
-            <p>Book a free 15-minute call. I'll listen to what's not working and tell you honestly if I can help.</p>
-            <div class="cta-buttons">
-                <a href="mailto:hello@smallbizsystems.com.au?subject=Free%20Assessment%20Enquiry" class="btn btn-primary">Book Free 15-Min Call →</a>
-                <a href="tel:0400000000" class="btn btn-outline">Call: 0400 000 000</a>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>Let's Talk Systems</h2>
+                    <p>Not sure where to start? Book a free 30-minute discovery call. We'll chat about your business, your frustrations, and whether we can help. No pressure, no pitch.</p>
+                    <ul class="contact-details">
+                        <li>
+                            <div class="contact-icon">📧</div>
+                            <div>
+                                <strong>Email</strong><br>
+                                <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d2bab7bebebd92a1bfb3bebeb0bba8a1aba1a6b7bfa1fcb1bdbffcb3a7">[email&#160;protected]</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact-icon">📱</div>
+                            <div>
+                                <strong>Phone</strong><br>
+                                0400 000 000
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact-icon">📍</div>
+                            <div>
+                                <strong>Location</strong><br>
+                                Brisbane, QLD
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="contact-form">
+                    <h3>Book Your Free Discovery Call</h3>
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <label for="contact-name">Your Name</label>
+                            <input type="text" id="contact-name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-email">Email Address</label>
+                            <input type="email" id="contact-email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-phone">Phone Number</label>
+                            <input type="tel" id="contact-phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-message">What's your biggest systems frustration?</label>
+                            <textarea id="contact-message" name="message" rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Request Discovery Call →</button>
+                    </form>
+                </div>
             </div>
-            <p style="margin-top: 32px; font-size: 0.9rem;" class="text-muted">Or email directly: <a href="mailto:hello@smallbizsystems.com.au" style="color: var(--color-accent);">hello@smallbizsystems.com.au</a></p>
         </div>
     </section>
 
@@ -1280,41 +1176,25 @@
         <div class="container">
             <div class="footer-grid">
                 <div>
-                    <div class="footer-brand">SmallBiz<span>Systems</span></div>
-                    <p class="footer-desc">Systems implementation and optimisation for Brisbane small businesses. Fixed prices, real results, no BS.</p>
+                    <div class="footer-logo">SmallBiz<span>Systems</span></div>
+                    <p>Helping Brisbane small businesses implement systems that work. Project-based consulting, no ongoing contracts.</p>
                 </div>
                 <div>
-                    <h4>Services</h4>
+                    <h4>Quick Links</h4>
                     <ul class="footer-links">
-                        <li><a href="#services">Systems Health Check</a></li>
-                        <li><a href="#services">Implementation</a></li>
-                        <li><a href="#services">Optimisation</a></li>
-                        <li><a href="#services">Ongoing Support</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#results">Case Studies</a></li>
+                        <li><a href="#how">How It Works</a></li>
+                        <li><a href="#about">About</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4>Resources</h4>
                     <ul class="footer-links">
                         <li><a href="#download">Free Assessment Guide</a></li>
-                        <li><a href="#results">Case Studies</a></li>
-                        <li><a href="#">Blog (Coming Soon)</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Contact</h4>
-                    <ul class="footer-links">
-                        <li><a href="mailto:hello@smallbizsystems.com.au">hello@smallbizsystems.com.au</a></li>
-                        <li><a href="tel:0400000000">0400 000 000</a></li>
-                        <li><a href="#">LinkedIn</a></li>
-                        <li>Albany Creek, Brisbane QLD</li>
+                        <li><a href="#contact">Book a Call</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2025 SmallBiz Systems. ABN: XX XXX XXX XXX. All rights reserved.</p>
-                <p style="margin-top: 8px; font-size: 0.75rem;">*Statistic from Australian Government Digital Business Plan research</p>
-            </div>
-        </div>
-    </footer>
-</body>
-</html>
+                <p>© 20
