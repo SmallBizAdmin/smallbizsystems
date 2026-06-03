@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SmallBiz Systems | Systems Implementation for Brisbane Small Businesses</title>
+    <title>SmallBiz Systems | Custom Software Built Around Your Business</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="/favicon-180.png">
+    <meta name="theme-color" content="#1A3C34">
+    <meta name="description" content="Custom-built software and automation for small businesses. Built around how you already work, not the other way around. Brisbane-based.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&display=swap" rel="stylesheet">
@@ -29,15 +35,8 @@
             --radius-lg: 24px;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: var(--font-body);
@@ -47,19 +46,10 @@
             font-size: 17px;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        .section {
-            padding: 100px 0;
-        }
-
-        .section-alt {
-            background-color: var(--color-bg-alt);
-        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .container-narrow { max-width: 820px; margin: 0 auto; padding: 0 24px; }
+        .section { padding: 100px 0; }
+        .section-alt { background-color: var(--color-bg-alt); }
 
         h1, h2, h3, h4 {
             font-family: var(--font-display);
@@ -67,1140 +57,752 @@
             line-height: 1.2;
             color: var(--color-primary);
         }
+        h1 { font-size: clamp(2.5rem, 5vw, 4.25rem); font-weight: 700; letter-spacing: -0.5px; }
+        h2 { font-size: clamp(2rem, 4vw, 2.75rem); margin-bottom: 20px; }
+        h3 { font-size: 1.5rem; margin-bottom: 12px; }
+        h4 { font-size: 1.125rem; font-family: var(--font-body); font-weight: 600; }
+        p { margin-bottom: 16px; }
 
-        h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 700;
-        }
+        .text-muted { color: var(--color-text-muted); }
+        .text-accent { color: var(--color-accent); }
+        .text-center { text-align: center; }
 
-        h2 {
-            font-size: clamp(2rem, 4vw, 2.75rem);
-            margin-bottom: 24px;
-        }
-
-        h3 {
-            font-size: 1.5rem;
-            margin-bottom: 12px;
-        }
-
-        p {
-            margin-bottom: 16px;
-        }
-
-        .text-muted {
-            color: var(--color-text-muted);
-        }
-
+        /* Buttons */
         .btn {
             display: inline-flex;
             align-items: center;
-            justify-content: center;
+            gap: 10px;
             padding: 16px 32px;
             font-family: var(--font-body);
-            font-size: 16px;
+            font-size: 1rem;
             font-weight: 600;
             text-decoration: none;
             border-radius: var(--radius-sm);
-            transition: all 0.3s ease;
             cursor: pointer;
+            transition: all 0.3s ease;
             border: none;
         }
-
-        .btn-primary {
-            background-color: var(--color-accent);
-            color: var(--color-white);
-        }
-
-        .btn-primary:hover {
-            background-color: var(--color-accent-light);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .btn-secondary {
-            background-color: var(--color-primary);
-            color: var(--color-white);
-        }
-
-        .btn-secondary:hover {
-            background-color: var(--color-primary-light);
-            transform: translateY(-2px);
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            color: var(--color-primary);
-            border: 2px solid var(--color-primary);
-        }
-
-        .btn-outline:hover {
-            background-color: var(--color-primary);
-            color: var(--color-white);
-        }
+        .btn-primary { background-color: var(--color-accent); color: var(--color-white); }
+        .btn-primary:hover { background-color: var(--color-accent-light); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+        .btn-secondary { background-color: var(--color-primary); color: var(--color-white); }
+        .btn-secondary:hover { background-color: var(--color-primary-light); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+        .btn-outline { background-color: transparent; color: var(--color-primary); border: 2px solid var(--color-primary); }
+        .btn-outline:hover { background-color: var(--color-primary); color: var(--color-white); }
+        .btn-light { background-color: var(--color-white); color: var(--color-primary); }
+        .btn-light:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
 
         /* Navigation */
         .nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
+            position: fixed; top: 0; left: 0; right: 0;
             background-color: rgba(253, 250, 246, 0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
-            padding: 16px 0;
+            padding: 14px 0;
             border-bottom: 1px solid var(--color-border);
         }
-
-        .nav-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
+        .nav-inner { display: flex; justify-content: space-between; align-items: center; }
         .nav-logo {
+            display: flex; align-items: center; gap: 12px;
             font-family: var(--font-display);
-            font-size: 1.5rem;
-            font-weight: 700;
+            font-size: 1.4rem; font-weight: 700;
             color: var(--color-primary);
             text-decoration: none;
         }
-
-        .nav-logo span {
-            color: var(--color-accent);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 32px;
-        }
-
-        .nav-links a {
-            color: var(--color-text);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover {
-            color: var(--color-accent);
-        }
-
-        .nav-cta {
-            display: flex;
-            gap: 12px;
-        }
-
-        .nav-cta .btn {
-            padding: 12px 20px;
-            font-size: 14px;
-        }
-
-        /* Hero Section */
-        .hero {
-            padding-top: 140px;
-            padding-bottom: 80px;
-            background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-alt) 100%);
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            background-color: var(--color-primary);
-            color: var(--color-white);
-            padding: 8px 16px;
-            border-radius: 50px;
-            font-size: 14px;
-            font-weight: 500;
-            margin-bottom: 24px;
-        }
-
-        .hero h1 span {
-            color: var(--color-accent);
-        }
-
-        .hero-text {
-            font-size: 1.25rem;
-            color: var(--color-text-muted);
-            margin-bottom: 32px;
-        }
-
-        .hero-ctas {
-            display: flex;
-            gap: 16px;
-            margin-bottom: 48px;
-        }
-
-        .hero-stats {
-            display: flex;
-            gap: 48px;
-        }
-
-        .hero-stat-number {
-            font-family: var(--font-display);
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--color-primary);
-        }
-
-        .hero-stat-label {
-            font-size: 14px;
-            color: var(--color-text-muted);
-        }
-
-        .hero-image {
-            display: flex;
-            justify-content: center;
-        }
-
-        .hero-image-main {
-            width: 400px;
-            height: 450px;
-            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
-            border-radius: var(--radius-lg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--color-white);
-            font-size: 1.25rem;
-            box-shadow: var(--shadow-lg);
-            text-align: center;
-            padding: 20px;
-        }
-
-        /* Problem Section */
-        .problem {
-            padding: 80px 0;
-        }
-
-        .problem h2 {
-            text-align: center;
-            margin-bottom: 48px;
-        }
-
-        .problem-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
-        }
-
-        .problem-card {
-            background-color: var(--color-white);
-            padding: 32px;
-            border-radius: var(--radius-md);
-            border: 1px solid var(--color-border);
-            transition: all 0.3s ease;
-        }
-
-        .problem-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .problem-icon {
-            font-size: 2.5rem;
-            margin-bottom: 16px;
-        }
-
-        .problem-card h3 {
-            font-size: 1.125rem;
-            margin-bottom: 12px;
-        }
-
-        .problem-card p {
-            color: var(--color-text-muted);
-            font-size: 15px;
-            margin-bottom: 0;
-        }
-
-        /* Services Section */
-        .services {
-            padding: 100px 0;
-            background-color: var(--color-bg-alt);
-        }
-
-        .services-header {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 60px;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 32px;
-        }
-
-        .service-card {
-            background-color: var(--color-white);
-            padding: 40px;
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-sm);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .service-card.featured {
-            border: 2px solid var(--color-accent);
-        }
-
-        .service-card.featured::before {
-            content: 'MOST POPULAR';
-            position: absolute;
-            top: 20px;
-            right: -35px;
-            background: var(--color-accent);
-            color: var(--color-white);
-            padding: 4px 40px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            transform: rotate(45deg);
-        }
-
-        .service-icon {
-            width: 56px;
-            height: 56px;
-            background: var(--color-bg-alt);
-            border-radius: var(--radius-sm);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-        }
-
-        .service-card h3 {
-            margin-bottom: 8px;
-        }
-
-        .service-price {
-            font-family: var(--font-display);
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--color-accent);
-            margin-bottom: 16px;
-        }
-
-        .service-price span {
-            font-size: 1rem;
-            font-weight: 400;
-            color: var(--color-text-muted);
-        }
-
-        .service-desc {
-            color: var(--color-text-muted);
-            margin-bottom: 24px;
-        }
-
-        .service-features {
-            list-style: none;
-            margin-bottom: 24px;
-        }
-
-        .service-features li {
-            padding: 8px 0;
-            padding-left: 28px;
-            position: relative;
-            color: var(--color-text-muted);
-        }
-
-        .service-features li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--color-accent);
-            font-weight: 600;
-        }
-
-        /* Results Section */
-        .results {
-            padding: 100px 0;
-        }
-
-        .results-header {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 60px;
-        }
-
-        .results-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
-        }
-
-        .result-card {
-            background-color: var(--color-white);
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--color-border);
-            transition: all 0.3s ease;
-        }
-
-        .result-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .result-image {
-            height: 120px;
-            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--color-white);
-            font-size: 3rem;
-        }
-
-        .result-content {
-            padding: 28px;
-        }
-
-        .result-industry {
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--color-accent);
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .result-card h3 {
-            font-size: 1.125rem;
-            margin-bottom: 12px;
-        }
-
-        .result-card p {
-            color: var(--color-text-muted);
-            font-size: 15px;
-            margin-bottom: 16px;
-        }
-
-        .result-stat {
-            font-family: var(--font-display);
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--color-primary);
-        }
-
-        .result-stat-label {
-            font-size: 14px;
-            color: var(--color-text-muted);
-        }
-
-        .result-link {
-            display: inline-block;
-            margin-top: 16px;
-            color: var(--color-accent);
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .result-link:hover {
-            text-decoration: underline;
-        }
-
-        /* Lead Magnet Section */
-        .lead-magnet {
-            padding: 100px 0;
-            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
-            color: var(--color-white);
-        }
-
-        .lead-magnet-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .lead-magnet h2 {
-            color: var(--color-white);
-        }
-
-        .lead-magnet-text {
-            font-size: 1.125rem;
-            opacity: 0.9;
-            margin-bottom: 24px;
-        }
-
-        .lead-magnet-benefits {
-            list-style: none;
-            margin-bottom: 32px;
-        }
-
-        .lead-magnet-benefits li {
-            padding: 8px 0;
-            padding-left: 32px;
-            position: relative;
-        }
-
-        .lead-magnet-benefits li::before {
-            content: '📄';
-            position: absolute;
-            left: 0;
-        }
-
-        .lead-magnet-form {
-            background: var(--color-white);
-            padding: 40px;
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .lead-magnet-form h3 {
-            color: var(--color-primary);
-            margin-bottom: 8px;
-            font-size: 1.25rem;
-        }
-
-        .lead-magnet-form > p {
-            color: var(--color-text-muted);
-            font-size: 0.9rem;
-            margin-bottom: 24px;
-        }
-
-        .form-group {
-            margin-bottom: 16px;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: 500;
-            color: var(--color-text);
-            margin-bottom: 8px;
-            font-size: 0.9rem;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 14px 16px;
-            border: 1px solid var(--color-border);
-            border-radius: var(--radius-sm);
-            font-family: var(--font-body);
-            font-size: 1rem;
-            transition: border-color 0.2s;
-        }
-
-        .form-group input:focus {
-            outline: none;
-            border-color: var(--color-accent);
-        }
-
-        .lead-magnet-form .btn {
-            width: 100%;
-            justify-content: center;
-        }
-
-        .form-privacy {
-            font-size: 0.75rem;
-            color: var(--color-text-muted);
-            margin-top: 12px;
-            text-align: center;
-        }
-
-        /* How It Works */
-        .how-it-works {
-            padding: 100px 0;
-            background-color: var(--color-bg-alt);
-        }
-
-        .how-header {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 60px;
-        }
-
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 32px;
-        }
-
-        .step {
-            text-align: center;
-            position: relative;
-        }
-
-        .step::after {
-            content: '→';
-            position: absolute;
-            right: -20px;
-            top: 40px;
-            font-size: 1.5rem;
-            color: var(--color-border);
-        }
-
-        .step:last-child::after {
-            display: none;
-        }
-
-        .step-number {
-            width: 60px;
-            height: 60px;
-            background-color: var(--color-accent);
-            color: var(--color-white);
+        .nav-logo svg { width: 38px; height: 38px; }
+        .nav-logo span { color: var(--color-accent); }
+        .nav-links { display: flex; gap: 32px; list-style: none; }
+        .nav-links a { color: var(--color-text); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--color-accent); }
+        .nav-cta { display: flex; gap: 12px; }
+        @media (max-width: 860px) { .nav-links, .nav-cta { display: none; } }
+
+        /* Hero */
+        .hero { padding: 170px 0 100px; position: relative; overflow: hidden; }
+        .hero::before {
+            content: ''; position: absolute; top: -100px; right: -200px;
+            width: 650px; height: 650px;
+            background: radial-gradient(circle, rgba(196, 92, 38, 0.08) 0%, transparent 70%);
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: var(--font-display);
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin: 0 auto 20px;
         }
-
-        .step h4 {
-            font-size: 1.125rem;
-            margin-bottom: 8px;
-        }
-
-        .step p {
-            font-size: 15px;
-            color: var(--color-text-muted);
-        }
-
-        /* About Section */
-        .about {
-            padding: 100px 0;
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .about-image-placeholder {
-            width: 100%;
-            aspect-ratio: 4/5;
-            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
-            border-radius: var(--radius-lg);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: var(--color-white);
-            box-shadow: var(--shadow-lg);
-            text-align: center;
-            padding: 30px;
-            font-size: 1rem;
-        }
-
-        .about-content h2 {
-            margin-bottom: 24px;
-        }
-
-        .about-content p {
-            color: var(--color-text-muted);
-            margin-bottom: 16px;
-        }
-
-        .about-credentials {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            margin-top: 32px;
-        }
-
-        .credential {
-            background: var(--color-bg-alt);
-            padding: 12px 20px;
-            border-radius: var(--radius-sm);
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        /* CTA Section */
-        .cta {
-            padding: 100px 0;
-            text-align: center;
+        .hero-content { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; text-align: center; }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
             background-color: var(--color-bg-alt);
+            color: var(--color-primary);
+            padding: 8px 16px; border-radius: 100px;
+            font-size: 0.875rem; font-weight: 500;
+            margin-bottom: 28px; border: 1px solid var(--color-border);
+        }
+        .hero h1 { margin-bottom: 28px; }
+        .hero h1 .highlight { color: var(--color-accent); }
+        .hero-text { font-size: 1.3rem; color: var(--color-text-muted); margin: 0 auto 36px; max-width: 640px; }
+        .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+
+        /* Insight / Problem */
+        .insight { background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-primary-light) 100%); color: var(--color-white); }
+        .insight h2 { color: var(--color-white); }
+        .insight-intro { text-align: center; max-width: 720px; margin: 0 auto; }
+        .insight-lead { font-size: 1.5rem; font-family: var(--font-display); line-height: 1.4; margin-bottom: 32px; }
+        .insight-lead .accent { color: var(--color-accent-light); font-style: italic; }
+        .insight p { font-size: 1.1rem; opacity: 0.9; }
+        .insight-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+        @media (max-width: 768px) { .insight-grid { grid-template-columns: 1fr; } }
+        .insight-card {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            padding: 28px; border-radius: var(--radius-md);
+            text-align: center;
+        }
+        .insight-card .icon {
+            width: 48px; height: 48px;
+            background: rgba(196, 92, 38, 0.18);
+            border: 1px solid rgba(224, 122, 61, 0.4);
+            border-radius: var(--radius-sm);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; margin: 0 auto 16px;
+        }
+        .insight-card .q { font-family: var(--font-display); font-size: 1.15rem; color: var(--color-white); margin-bottom: 10px; }
+        .insight-card p { font-size: 0.95rem; opacity: 0.8; margin-bottom: 0; }
+
+        /* Section header */
+        .section-header { text-align: center; max-width: 720px; margin: 0 auto 56px; }
+        .section-header h2 { margin-bottom: 16px; }
+        .section-header p { font-size: 1.15rem; color: var(--color-text-muted); }
+        .eyebrow {
+            display: inline-block;
+            font-size: 0.8rem; font-weight: 600; letter-spacing: 1.5px;
+            text-transform: uppercase; color: var(--color-accent);
+            margin-bottom: 12px;
         }
 
-        .cta h2 {
-            margin-bottom: 16px;
+        /* What we build */
+        .build-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+        @media (max-width: 900px) { .build-grid { grid-template-columns: 1fr; } }
+        .build-card {
+            background: var(--color-white);
+            border-radius: var(--radius-md);
+            padding: 36px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--color-border);
+            transition: all 0.3s ease;
+            text-align: center;
         }
+        .build-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+        .build-icon {
+            width: 52px; height: 52px;
+            background: var(--color-bg-alt);
+            border-radius: var(--radius-sm);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; margin: 0 auto 18px;
+        }
+        .build-card h3 { margin-bottom: 14px; }
+        .build-tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+        .build-tag {
+            background: var(--color-bg-alt);
+            color: var(--color-primary);
+            padding: 6px 14px; border-radius: 100px;
+            font-size: 0.85rem; font-weight: 500;
+        }
+        .build-catchall {
+            text-align: center; margin-top: 48px;
+            padding: 36px; background: var(--color-white);
+            border: 2px dashed var(--color-accent);
+            border-radius: var(--radius-md);
+        }
+        .build-catchall h3 { color: var(--color-accent); }
+        .build-catchall p { margin-bottom: 0; color: var(--color-text-muted); font-size: 1.05rem; }
 
-        .cta > .container > p {
-            color: var(--color-text-muted);
-            font-size: 1.125rem;
-            margin-bottom: 32px;
+        /* How it works */
+        .steps-flow { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-top: 20px; }
+        @media (max-width: 900px) { .steps-flow { grid-template-columns: 1fr; gap: 24px; } }
+        .step {
+            text-align: center; position: relative;
+            background: var(--color-white);
+            padding: 28px 20px; border-radius: var(--radius-md);
+            border: 1px solid var(--color-border);
         }
+        .step-num {
+            width: 44px; height: 44px;
+            background: var(--color-accent); color: var(--color-white);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 16px; font-family: var(--font-display); font-size: 1.2rem; font-weight: 700;
+        }
+        .step h4 { color: var(--color-primary); margin-bottom: 8px; font-size: 1.05rem; }
+        .step p { font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 0; }
 
-        .cta-buttons {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            margin-bottom: 24px;
+        /* Admin / ongoing relationship */
+        .admin { background: linear-gradient(135deg, var(--color-accent) 0%, #D86A35 100%); color: var(--color-white); position: relative; overflow: hidden; }
+        .admin::before {
+            content: ''; position: absolute; bottom: -150px; left: -100px;
+            width: 450px; height: 450px; background: rgba(255,255,255,0.1); border-radius: 50%;
         }
+        .admin-inner { position: relative; z-index: 1; max-width: 820px; margin: 0 auto; text-align: center; }
+        .admin h2 { color: var(--color-white); }
+        .admin-lead { font-size: 1.35rem; opacity: 0.95; margin-bottom: 40px; }
+        .admin-points { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; text-align: left; }
+        @media (max-width: 768px) { .admin-points { grid-template-columns: 1fr; } }
+        .admin-point {
+            background: rgba(255,255,255,0.12);
+            padding: 24px; border-radius: var(--radius-md);
+            border: 1px solid rgba(255,255,255,0.2);
+            text-align: center;
+        }
+        .admin-point .icon {
+            width: 46px; height: 46px;
+            background: rgba(255,255,255,0.18);
+            border-radius: var(--radius-sm);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.4rem; margin: 0 auto 14px;
+        }
+        .admin-point h4 { color: var(--color-white); margin-bottom: 8px; }
+        .admin-point p { font-size: 0.95rem; opacity: 0.9; margin-bottom: 0; }
+
+        /* Why custom */
+        .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+        @media (max-width: 768px) { .compare-grid { grid-template-columns: 1fr; } }
+        .compare-col { padding: 36px; border-radius: var(--radius-md); }
+        .compare-off { background: var(--color-white); border: 1px solid var(--color-border); }
+        .compare-custom { background: var(--color-primary); color: var(--color-white); }
+        .compare-custom h3 { color: var(--color-white); }
+        .compare-label { font-size: 0.8rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
+        .compare-off .compare-label { color: var(--color-text-muted); }
+        .compare-custom .compare-label { color: var(--color-accent-light); }
+        .compare-list { list-style: none; margin-top: 20px; }
+        .compare-list li { padding: 10px 0; padding-left: 30px; position: relative; }
+        .compare-off .compare-list li { color: var(--color-text-muted); }
+        .compare-off .compare-list li::before { content: '✕'; position: absolute; left: 0; color: #B85C5C; font-weight: 700; }
+        .compare-custom .compare-list li::before { content: '✓'; position: absolute; left: 0; color: var(--color-accent-light); font-weight: 700; }
+
+        /* Pricing */
+        .pricing-intro { text-align: center; max-width: 680px; margin: 0 auto 48px; }
+        .pricing-model { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; max-width: 900px; margin: 0 auto; }
+        @media (max-width: 768px) { .pricing-model { grid-template-columns: 1fr; } }
+        .price-block {
+            background: var(--color-white); border-radius: var(--radius-md);
+            padding: 40px; border: 1px solid var(--color-border); text-align: center;
+        }
+        .price-block .price-label { font-size: 0.8rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--color-accent); margin-bottom: 12px; }
+        .price-block h3 { font-size: 1.4rem; margin-bottom: 8px; }
+        .price-amount { font-family: var(--font-display); font-size: 2.5rem; font-weight: 700; color: var(--color-primary); margin: 12px 0; }
+        .price-amount span { font-size: 1rem; font-weight: 400; color: var(--color-text-muted); }
+        .price-block p { color: var(--color-text-muted); font-size: 0.95rem; }
+        .price-tiers { margin-top: 20px; text-align: left; }
+        .price-tier { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--color-border); font-size: 0.95rem; }
+        .price-tier:last-child { border-bottom: none; }
+        .price-tier strong { color: var(--color-primary); }
+        .pricing-note { text-align: center; margin-top: 36px; color: var(--color-text-muted); font-size: 0.95rem; max-width: 640px; margin-left: auto; margin-right: auto; }
+
+        /* Proof / case studies */
+        .cases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+        @media (max-width: 900px) { .cases-grid { grid-template-columns: 1fr; } }
+        .case-card {
+            background: var(--color-white); border-radius: var(--radius-md);
+            overflow: hidden; box-shadow: var(--shadow-sm);
+            border: 1px solid var(--color-border); transition: all 0.3s ease;
+        }
+        .case-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+        .case-image { height: 190px; background: #E9EEEB; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .case-image svg { width: 100%; height: 100%; display: block; }
+        .case-content { padding: 28px; }
+        .case-industry { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--color-accent); font-weight: 600; margin-bottom: 8px; }
+        .case-card h3 { font-size: 1.25rem; margin-bottom: 12px; }
+        .case-card p { font-size: 0.95rem; color: var(--color-text-muted); margin-bottom: 0; }
+
+        /* CTA */
+        .cta { text-align: center; }
+        .cta h2 { margin-bottom: 16px; }
+        .cta p { font-size: 1.25rem; color: var(--color-text-muted); max-width: 600px; margin: 0 auto 32px; }
+        .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 
         /* Footer */
-        .footer {
-            background-color: var(--color-primary);
-            color: var(--color-white);
-            padding: 60px 0 30px;
+        .footer { background: var(--color-primary); color: var(--color-white); padding: 60px 0 30px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+        @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr; } }
+        .footer-brand { display: flex; align-items: center; gap: 12px; font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; margin-bottom: 16px; }
+        .footer-brand svg { width: 36px; height: 36px; }
+        .footer-brand span { color: var(--color-accent); }
+        .footer-desc { opacity: 0.8; font-size: 0.9rem; line-height: 1.7; }
+        .footer h4 { color: var(--color-white); margin-bottom: 16px; font-size: 1rem; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        .footer-links a:hover { color: var(--color-white); }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.2); padding-top: 30px; text-align: center; opacity: 0.7; font-size: 0.875rem; }
+
+        /* Contact Modal */
+        .modal-overlay {
+            position: fixed; inset: 0;
+            background: rgba(26, 60, 52, 0.55);
+            backdrop-filter: blur(4px);
+            display: none;
+            align-items: center; justify-content: center;
+            z-index: 2000; padding: 24px;
         }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 40px;
+        .modal-overlay.open { display: flex; }
+        .modal {
+            background: var(--color-white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            max-width: 480px; width: 100%;
+            padding: 40px;
+            position: relative;
+            animation: modalIn 0.25s ease;
+            max-height: 90vh; overflow-y: auto;
         }
-
-        .footer-brand {
-            font-family: var(--font-display);
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 16px;
+        @keyframes modalIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .modal-close {
+            position: absolute; top: 16px; right: 16px;
+            width: 36px; height: 36px;
+            border: none; background: var(--color-bg-alt);
+            border-radius: 50%; cursor: pointer;
+            font-size: 1.2rem; color: var(--color-text-muted);
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.2s;
         }
-
-        .footer-brand span {
-            color: var(--color-accent);
+        .modal-close:hover { background: var(--color-border); color: var(--color-primary); }
+        .modal h3 { font-size: 1.6rem; margin-bottom: 8px; }
+        .modal-sub { color: var(--color-text-muted); margin-bottom: 24px; font-size: 0.95rem; }
+        .form-group { margin-bottom: 16px; }
+        .form-group label { display: block; font-weight: 500; color: var(--color-text); margin-bottom: 6px; font-size: 0.9rem; }
+        .form-group input, .form-group textarea {
+            width: 100%; padding: 13px 15px;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-sm);
+            font-family: var(--font-body); font-size: 1rem;
+            transition: border-color 0.2s; background: var(--color-bg);
         }
-
-        .footer-desc {
-            opacity: 0.8;
-            font-size: 0.9rem;
-        }
-
-        .footer h4 {
-            color: var(--color-white);
-            font-size: 1rem;
-            margin-bottom: 20px;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-
-        .footer-links a {
-            color: var(--color-white);
-            opacity: 0.8;
-            text-decoration: none;
-            transition: opacity 0.2s;
-        }
-
-        .footer-links a:hover {
-            opacity: 1;
-        }
-
-        .footer-bottom {
-            padding-top: 30px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            text-align: center;
-            font-size: 14px;
-            opacity: 0.7;
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .hero-grid,
-            .lead-magnet-grid,
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .steps {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .step::after {
-                display: none;
-            }
-
-            .hero-image {
-                order: -1;
-            }
-
-            .hero-image-main {
-                width: 100%;
-                max-width: 400px;
-                height: 350px;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-links,
-            .nav-cta {
-                display: none;
-            }
-
-            .problem-grid,
-            .results-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .steps {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 32px;
-            }
-
-            .section {
-                padding: 60px 0;
-            }
-
-            .hero {
-                padding-top: 100px;
-            }
-
-            .about-credentials {
-                flex-direction: column;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .hero-ctas {
-                flex-direction: column;
-            }
-
-            .hero-stats {
-                flex-direction: column;
-                gap: 24px;
-            }
-        }
+        .form-group textarea { resize: vertical; min-height: 90px; }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--color-accent); }
+        .modal .btn { width: 100%; justify-content: center; margin-top: 8px; }
+        .form-privacy { font-size: 0.75rem; color: var(--color-text-muted); margin-top: 14px; text-align: center; }
+        .form-success { display: none; text-align: center; padding: 20px 0; }
+        .form-success.show { display: block; }
+        .form-success .check { font-size: 3rem; margin-bottom: 12px; }
+        .form-success h3 { color: var(--color-accent); }
     </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="nav">
         <div class="container nav-inner">
-            <a href="#" class="nav-logo">SmallBiz<span>Systems</span></a>
+            <a href="#" class="nav-logo">
+                <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="navGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#1A3C34"/>
+                            <stop offset="100%" style="stop-color:#2D5A4E"/>
+                        </linearGradient>
+                    </defs>
+                    <rect x="4" y="4" width="112" height="112" rx="20" fill="url(#navGrad)"/>
+                    <rect x="4" y="4" width="112" height="112" rx="20" fill="none" stroke="#C45C26" stroke-width="3"/>
+                    <circle cx="78" cy="28" r="10" fill="#C45C26"/>
+                    <circle cx="42" cy="52" r="10" fill="#FFFFFF"/>
+                    <circle cx="78" cy="68" r="10" fill="#FFFFFF"/>
+                    <circle cx="42" cy="92" r="10" fill="#C45C26"/>
+                    <path d="M70 36 L50 46" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+                    <polygon points="50,46 58,42 56,50" fill="#FFFFFF"/>
+                    <path d="M50 58 L70 64" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+                    <polygon points="70,64 62,60 64,68" fill="#FFFFFF"/>
+                    <path d="M70 76 L50 86" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+                    <polygon points="50,86 58,82 56,90" fill="#FFFFFF"/>
+                </svg>
+                SmallBiz<span>Systems</span>
+            </a>
             <ul class="nav-links">
-                <li><a href="#services">Services</a></li>
-                <li><a href="#results">Results</a></li>
+                <li><a href="#build">What I Build</a></li>
                 <li><a href="#how">How It Works</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#proof">Proof</a></li>
             </ul>
             <div class="nav-cta">
-                <a href="#download" class="btn btn-outline">Free Guide</a>
-                <a href="#contact" class="btn btn-primary">Book a Call</a>
+                <a href="#contact" class="btn btn-primary">Get in Touch</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero">
         <div class="container">
-            <div class="hero-grid">
-                <div class="hero-content">
-                    <span class="hero-badge">Brisbane-Based Systems Consultants</span>
-                    <h1>Your competitors are <span>automating.</span><br>Are you keeping up?</h1>
-                    <p class="hero-text">We help Brisbane small businesses implement systems that reduce errors, save time, and deliver the seamless customer experience your competitors are already offering.</p>
-                    <div class="hero-ctas">
-                        <a href="#contact" class="btn btn-primary">Book Free Assessment →</a>
-                        <a href="#download" class="btn btn-outline">Download Free Guide</a>
-                    </div>
-                    <div class="hero-stats">
-                        <div>
-                            <div class="hero-stat-number">60%</div>
-                            <div class="hero-stat-label">More revenue per employee<br>with digital systems*</div>
-                        </div>
-                        <div>
-                            <div class="hero-stat-number">89%</div>
-                            <div class="hero-stat-label">of small businesses<br>aren't fully digital yet</div>
-                        </div>
-                    </div>
+            <div class="hero-content">
+                <span class="hero-badge">Brisbane-Based Custom Software</span>
+                <h1>Most software makes you change how you work.<br><span class="highlight">We build software around how you already work.</span></h1>
+                <p class="hero-text">Custom-built tools and automations for small businesses with needs that off-the-shelf software just doesn't fit. We figure out your process, then build the system that runs it.</p>
+                <div class="hero-ctas">
+                    <a href="#contact" class="btn btn-primary">Get in Touch →</a>
+                    <a href="#build" class="btn btn-outline">See What's Possible</a>
                 </div>
-                <div class="hero-image">
-                    <div class="hero-image-main">
-                        [Your Photo Here]
+            </div>
+        </div>
+    </section>
+
+    <!-- Insight / Problem -->
+    <section class="insight section">
+        <div class="container-narrow">
+            <div class="insight-intro">
+                <span class="eyebrow" style="color: var(--color-accent-light);">The Problem</span>
+                <p class="insight-lead">Off-the-shelf apps do <span class="accent">80% of what you need</span>, and make you work around the other 20% every day.</p>
+                <p style="margin-bottom: 0;">No one builds for a business quite like yours. So ask yourself:</p>
+            </div>
+            <div class="insight-grid">
+                <div class="insight-card">
+                    <div class="icon">🔁</div>
+                    <div class="q">A task done the same way every day?</div>
+                    <p>Repetitive and predictable means it can be automated.</p>
+                </div>
+                <div class="insight-card">
+                    <div class="icon">🧠</div>
+                    <div class="q">A process that lives in one head?</div>
+                    <p>A system makes it permanent, even when they're away.</p>
+                </div>
+                <div class="insight-card">
+                    <div class="icon">📊</div>
+                    <div class="q">A spreadsheet holding it together?</div>
+                    <p>Great, until it breaks, gets overwritten, or hits its limit.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Custom -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="eyebrow">Why Custom</span>
+                <h2>Built for you beats built for everyone</h2>
+            </div>
+            <div class="compare-grid">
+                <div class="compare-col compare-off">
+                    <div class="compare-label">Off-the-Shelf SaaS</div>
+                    <h3>Built for the average business</h3>
+                    <ul class="compare-list">
+                        <li>You bend your process to fit the software</li>
+                        <li>Pay for features you'll never use, miss the one you need</li>
+                        <li>Built for the average business, not your niche</li>
+                        <li>You set it up, run it, and admin it yourself</li>
+                        <li>Support is a ticket queue in another timezone</li>
+                        <li>Costs rise with every user you add</li>
+                    </ul>
+                </div>
+                <div class="compare-col compare-custom">
+                    <div class="compare-label">Custom-Built by SmallBiz Systems</div>
+                    <h3>Built for your business</h3>
+                    <ul class="compare-list">
+                        <li>The software fits how you already work</li>
+                        <li>Only what you need, including what you can't buy elsewhere</li>
+                        <li>Designed around your exact niche and process</li>
+                        <li>We build it, host it, and manage it for you</li>
+                        <li>A direct line to the person who built it</li>
+                        <li>One predictable fee, whatever your team size</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admin / Ongoing relationship -->
+    <section class="admin section">
+        <div class="container">
+            <div class="admin-inner">
+                <span class="eyebrow" style="color: var(--color-white);">The Best Part</span>
+                <h2>We don't just build it. We manage it for you.</h2>
+                <p class="admin-lead">We handle everything technical, from the first set-up right through to ongoing upkeep, so you can simply use your system and get on with running your business.</p>
+                <div class="admin-points">
+                    <div class="admin-point">
+                        <div class="icon">🚀</div>
+                        <h4>We set it up, start to finish</h4>
+                        <p>We get everything live, configured on your devices, and your old data migrated in. No half-finished setup, no data left stranded in the old system.</p>
+                    </div>
+                    <div class="admin-point">
+                        <div class="icon">👤</div>
+                        <h4>We're your system admin</h4>
+                        <p>Adding or removing users, resetting passwords, updating access and permissions, changing settings, tweaking how things work. Just ask, and we take care of it.</p>
+                    </div>
+                    <div class="admin-point">
+                        <div class="icon">🐛</div>
+                        <h4>Bugs are on us</h4>
+                        <p>If something isn't working the way it's meant to, we fix it. No hourly billing for things that should just work.</p>
+                    </div>
+                    <div class="admin-point">
+                        <div class="icon">☁️</div>
+                        <h4>Hosting &amp; tech handled</h4>
+                        <p>Servers, databases, security, backups. All of it is our responsibility, not yours. It just works.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Problem Section -->
-    <section class="problem">
+    <!-- What I Build -->
+    <section id="build" class="section">
         <div class="container">
-            <h2>Sound familiar?</h2>
-            <div class="problem-grid">
-                <div class="problem-card">
-                    <div class="problem-icon">📦</div>
-                    <h3>"We bought the software but never set it up properly"</h3>
-                    <p>You're paying for systems gathering digital dust. The CRM has 12 contacts. The project management tool shows last year's tasks.</p>
-                </div>
-                <div class="problem-card">
-                    <div class="problem-icon">📋</div>
-                    <h3>"Everything is still manual and we keep making mistakes"</h3>
-                    <p>Invoices go out late. Customer details get lost in email threads. The same information is entered three times.</p>
-                </div>
-                <div class="problem-card">
-                    <div class="problem-icon">📱</div>
-                    <h3>"Our customers expect more than we can deliver"</h3>
-                    <p>They want online booking, instant quotes, real-time updates. Your competitors offer it. You're still taking appointments by phone.</p>
-                </div>
+            <div class="section-header">
+                <span class="eyebrow">What I Build</span>
+                <h2>If it runs on a computer and supports your business, we can build it</h2>
+                <p>These are examples, not a fixed menu. The point is that it's built for <em>you</em>.</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="container">
-            <div class="services-header">
-                <h2>Services that get results</h2>
-                <p class="text-muted">We don't just give you advice and disappear. We implement, document, train, and hand over systems that actually work.</p>
-            </div>
-            <div class="services-grid">
-                <!-- Service 1 -->
-                <div class="service-card featured">
-                    <div class="service-icon">🔍</div>
-                    <h3>Systems Health Check</h3>
-                    <div class="service-price">$1,500 - $2,500 <span>fixed fee</span></div>
-                    <p class="service-desc">A comprehensive audit of your current processes and technology, with a clear roadmap of what to fix, what to add, and what's wasting your money.</p>
-                    <ul class="service-features">
-                        <li>2-hour discovery session (on-site or video)</li>
-                        <li>Full review of current processes & systems</li>
-                        <li>Written report with specific recommendations</li>
-                        <li>SaaS product recommendations with costs</li>
-                        <li>Priority-ranked implementation roadmap</li>
-                        <li>1-hour walkthrough of findings</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-primary">Get Your Health Check</a>
-                </div>
-
-                <!-- Service 2 -->
-                <div class="service-card">
-                    <div class="service-icon">🚀</div>
-                    <h3>Implementation Package</h3>
-                    <div class="service-price">$2,500 - $8,000 <span>fixed fee</span></div>
-                    <p class="service-desc">Whether you're starting fresh or rescuing a half-finished setup, we'll get your systems working properly and your team trained.</p>
-                    <ul class="service-features">
-                        <li>Full setup & configuration of one system</li>
-                        <li>Data migration from existing tools</li>
-                        <li>Custom workflows & automation rules</li>
-                        <li>User documentation (how-to guides)</li>
-                        <li>2 hours of hands-on team training</li>
-                        <li>30 days of email support</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-secondary">Discuss Your Project</a>
-                </div>
-
-                <!-- Service 3 -->
-                <div class="service-card">
-                    <div class="service-icon">⚡</div>
-                    <h3>Optimisation Sprint</h3>
-                    <div class="service-price">$1,500 - $3,000 <span>fixed fee</span></div>
-                    <p class="service-desc">You've got the systems. Let's make them work harder. Automation rules, macros, better workflows—without adding new subscriptions.</p>
-                    <ul class="service-features">
-                        <li>Audit of one existing system</li>
-                        <li>Configuration improvements</li>
-                        <li>Automation setup (bank feeds, workflows)</li>
-                        <li>Custom macros for Excel/reporting</li>
-                        <li>Documentation of all changes</li>
-                        <li>Before/after performance comparison</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-secondary">Optimise Our Systems</a>
-                </div>
-
-                <!-- Service 4 -->
-                <div class="service-card">
-                    <div class="service-icon">🤝</div>
-                    <h3>Ongoing Support Retainer</h3>
-                    <div class="service-price">$300 - $500 <span>per month</span></div>
-                    <p class="service-desc">For businesses that want systems experts on call. Quick questions, minor tweaks, and peace of mind.</p>
-                    <ul class="service-features">
-                        <li>Priority email & phone support</li>
-                        <li>2 hours of included work per month</li>
-                        <li>Quarterly systems review</li>
-                        <li>New feature setup as platforms update</li>
-                        <li>Discounted rates on larger projects</li>
-                        <li>Cancel anytime—no lock-in</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-secondary">Get Ongoing Support</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Results Section -->
-    <section id="results" class="results">
-        <div class="container">
-            <div class="results-header">
-                <h2>Real results for Brisbane businesses</h2>
-                <p class="text-muted">Here's what happens when systems actually work.</p>
-            </div>
-            <div class="results-grid">
-                <div class="result-card">
-                    <div class="result-image">🏗️</div>
-                    <div class="result-content">
-                        <div class="result-industry">Civil Construction</div>
-                        <h3>Bank reconciliation time cut by 80%</h3>
-                        <p>A civil contractor was spending 15+ hours per month manually matching payments. Automated bank feed rules and payment matching now handle 90% automatically.</p>
-                        <div class="result-stat">12hrs</div>
-                        <div class="result-stat-label">saved per month on reconciliation</div>
-                        <a href="case-study-civil.pdf" class="result-link">Read full case study →</a>
+            <div class="build-grid">
+                <div class="build-card">
+                    <div class="build-icon">🔧</div>
+                    <h3>Operational Tools</h3>
+                    <p class="text-muted">The systems that run your day-to-day work.</p>
+                    <div class="build-tags">
+                        <span class="build-tag">Timesheets</span>
+                        <span class="build-tag">Proof of delivery</span>
+                        <span class="build-tag">Run sheets & scheduling</span>
+                        <span class="build-tag">Service logs</span>
+                        <span class="build-tag">Inventory tracking</span>
+                        <span class="build-tag">Compliance & safety logs</span>
+                        <span class="build-tag">Digital forms & checklists</span>
+                        <span class="build-tag">Quote generators</span>
                     </div>
                 </div>
-                <div class="result-card">
-                    <div class="result-image">🔧</div>
-                    <div class="result-content">
-                        <div class="result-industry">Trades & Services</div>
-                        <h3>Google reviews jumped from 8 to 47</h3>
-                        <p>A plumber had happy customers but no reviews. Automated post-job emails with one-click review links changed everything in 4 months.</p>
-                        <div class="result-stat">487%</div>
-                        <div class="result-stat-label">increase in Google reviews</div>
-                        <a href="case-study-trades.pdf" class="result-link">Read full case study →</a>
+                <div class="build-card">
+                    <div class="build-icon">👥</div>
+                    <h3>Customer-Facing Tools</h3>
+                    <p class="text-muted">Web-enabled systems your customers interact with.</p>
+                    <div class="build-tags">
+                        <span class="build-tag">Online booking</span>
+                        <span class="build-tag">Review requests</span>
+                        <span class="build-tag">Customer portals</span>
+                        <span class="build-tag">Job status tracking</span>
+                        <span class="build-tag">Enquiry & quote forms</span>
+                        <span class="build-tag">Automated notifications</span>
                     </div>
                 </div>
-                <div class="result-card">
-                    <div class="result-image">🏢</div>
-                    <div class="result-content">
-                        <div class="result-industry">Professional Services</div>
-                        <h3>$18K saved on missed invoices</h3>
-                        <p>A consulting firm was losing track of billable work. CRM integration with time tracking and automated invoicing caught everything.</p>
-                        <div class="result-stat">$18K</div>
-                        <div class="result-stat-label">recovered in first 6 months</div>
-                        <a href="case-study-professional.pdf" class="result-link">Read full case study →</a>
+                <div class="build-card">
+                    <div class="build-icon">💰</div>
+                    <h3>Accounting Automation</h3>
+                    <p class="text-muted">Make MYOB or Xero do the heavy lifting.</p>
+                    <div class="build-tags">
+                        <span class="build-tag">Automated invoicing</span>
+                        <span class="build-tag">Bank feed rules</span>
+                        <span class="build-tag">Receipt categorisation</span>
+                        <span class="build-tag">Job costing</span>
+                        <span class="build-tag">Payment reminders</span>
+                        <span class="build-tag">Cost capture</span>
+                    </div>
+                </div>
+                <div class="build-card">
+                    <div class="build-icon">📊</div>
+                    <h3>Reporting & Integrations</h3>
+                    <p class="text-muted">See your numbers, and make your tools talk.</p>
+                    <div class="build-tags">
+                        <span class="build-tag">Custom dashboards</span>
+                        <span class="build-tag">Automated reports</span>
+                        <span class="build-tag">KPI tracking</span>
+                        <span class="build-tag">Profitability analysis</span>
+                        <span class="build-tag">System integrations</span>
+                        <span class="build-tag">Connecting tools that don't connect</span>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Lead Magnet Section -->
-    <section id="download" class="lead-magnet">
-        <div class="container">
-            <div class="lead-magnet-grid">
-                <div class="lead-magnet-content">
-                    <h2>Free: The Small Business Systems Self-Assessment</h2>
-                    <p class="lead-magnet-text">Not sure where to start? This 15-minute self-assessment will help you identify your biggest systems gaps—plus 10 quick wins you can implement yourself this week.</p>
-                    <ul class="lead-magnet-benefits">
-                        <li>20-question diagnostic across 5 key areas</li>
-                        <li>Instant scoring with priority recommendations</li>
-                        <li>10 "quick wins" you can do today—no consultant required</li>
-                        <li>Recommended tools for each problem area</li>
-                        <li>Typical cost ranges so you can budget</li>
-                    </ul>
-                </div>
-                <div class="lead-magnet-form">
-                    <h3>Get your free assessment guide</h3>
-                    <p>Enter your details and we'll send it straight to your inbox.</p>
-                    <form action="#" method="POST">
-                        <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" name="name" placeholder="e.g. Sarah Mitchell" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" placeholder="e.g. sarah@yourbusiness.com.au" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="business">Business Name (optional)</label>
-                            <input type="text" id="business" name="business" placeholder="e.g. Mitchell's Plumbing">
-                        </div>
-                        <button type="submit" class="btn btn-primary">Send Me The Guide →</button>
-                        <p class="form-privacy">🔒 No spam, ever. Your email stays private.</p>
-                    </form>
-                </div>
+            <div class="build-catchall">
+                <h3>Don't see your exact need?</h3>
+                <p>That's the whole point. We build custom for your business, your process, your niche. If it doesn't exist yet, let's build it.</p>
             </div>
         </div>
     </section>
 
     <!-- How It Works -->
-    <section id="how" class="how-it-works">
+    <section id="how" class="section section-alt">
         <div class="container">
-            <div class="how-header">
-                <h2>How it works</h2>
-                <p class="text-muted">Simple, transparent, and designed to respect your time.</p>
+            <div class="section-header">
+                <span class="eyebrow">How It Works</span>
+                <h2>From conversation to working system</h2>
+                <p>No surprises, no jargon. You know exactly what you're getting before you pay a cent.</p>
             </div>
-            <div class="steps">
+            <div class="steps-flow">
                 <div class="step">
-                    <div class="step-number">1</div>
-                    <h4>Free 15-Min Call</h4>
-                    <p>Tell us what's not working. We'll tell you if we can help (and if we can't, we'll point you in the right direction).</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h4>Health Check</h4>
-                    <p>We dig into your processes and systems. You get a written report with exactly what to do and what it'll cost.</p>
+                    <div class="step-num">1</div>
+                    <h4>Free Chat</h4>
+                    <p>We talk through your business, your process, and where the pain is. No cost, no obligation.</p>
                 </div>
                 <div class="step">
-                    <div class="step-number">3</div>
-                    <h4>Implementation</h4>
-                    <p>We build it, configure it, migrate your data, and train your team. You don't lift a finger.</p>
+                    <div class="step-num">2</div>
+                    <h4>Brief & Design</h4>
+                    <p>We put together a clear brief with diagrams showing exactly what the system will do. We refine it together until it's right.</p>
                 </div>
                 <div class="step">
-                    <div class="step-number">4</div>
-                    <h4>Handover</h4>
-                    <p>You get documentation, training, and 30 days of support. Then you're self-sufficient.</p>
+                    <div class="step-num">3</div>
+                    <h4>Quote</h4>
+                    <p>A fixed upfront build fee and a simple monthly fee. You accept when you're happy, or you don't.</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-image">
-                    <div class="about-image-placeholder">
-                        [Your Photo Here]<br><br>
-                        Husband & wife team with 20+ years of admin & systems experience
-                    </div>
+                <div class="step">
+                    <div class="step-num">4</div>
+                    <h4>Build</h4>
+                    <p>We build it, with a clear timeframe. You get a system designed from the ground up around how you work.</p>
                 </div>
-                <div class="about-content">
-                    <h2>Brisbane-based. Small business focused.</h2>
-                    <p>We're not a big consultancy that'll send you a junior and bill you for a senior. We're a Brisbane-based husband and wife team who actually do the work.</p>
-                    <p>Our background spans accounting software (MYOB, Xero), CRM implementation, automation, and two decades of working inside small businesses. We know what it's like to run on tight margins and wear multiple hats.</p>
-                    <p>We focus on practical, affordable solutions using tools that already exist in the marketplace—not custom software that costs a fortune and breaks when we leave.</p>
-                    <p><strong>Our promise:</strong> Fixed prices, no jargon, and systems that actually work after we're gone.</p>
-                    <div class="about-credentials">
-                        <div class="credential">📍 Albany Creek, Brisbane</div>
-                        <div class="credential">💼 20+ Years Experience</div>
-                        <div class="credential">🔧 MYOB & Xero Certified</div>
-                        <div class="credential">🤝 Local Business Owners</div>
-                    </div>
+                <div class="step">
+                    <div class="step-num">5</div>
+                    <h4>Support</h4>
+                    <p>It goes live, and we keep it running. Hosting, fixes, and changes are all handled.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section id="contact" class="cta">
+    <!-- Pricing -->
+    <section id="pricing" class="section">
         <div class="container">
-            <h2>Ready to stop falling behind?</h2>
-            <p>Book a free 15-minute call. We'll listen to what's not working and tell you honestly if we can help.</p>
+            <div class="pricing-intro">
+                <span class="eyebrow">Pricing</span>
+                <h2>Simple, transparent, no surprises</h2>
+                <p>Two parts: a one-off fee to build it, and a small monthly fee to run it.</p>
+            </div>
+            <div class="pricing-model">
+                <div class="price-block">
+                    <div class="price-label">One-Off</div>
+                    <h3>Build Fee</h3>
+                    <div class="price-amount">From $2,000<span></span></div>
+                    <p>A fixed price to design and build your system, agreed upfront before any work starts. Scales with the size and complexity of what you need.</p>
+                    <div class="price-tiers">
+                        <div class="price-tier"><span>Simple tool or automation</span><strong>$2k – $4k</strong></div>
+                        <div class="price-tier"><span>Medium system</span><strong>$5k – $10k</strong></div>
+                        <div class="price-tier"><span>Larger / complex build</span><strong>Let's talk</strong></div>
+                    </div>
+                </div>
+                <div class="price-block">
+                    <div class="price-label">Ongoing</div>
+                    <h3>Monthly Fee</h3>
+                    <div class="price-amount">From $100<span>/month</span></div>
+                    <p>This isn't a software subscription. It's a managed service: hosting plus a real person to maintain, fix, and adjust your system. Pick the level that suits you.</p>
+                    <div class="price-tiers">
+                        <div class="price-tier"><span>Hosting + bug fixes</span><strong>~$100/mo</strong></div>
+                        <div class="price-tier"><span>+ Minor changes & tweaks</span><strong>~$200/mo</strong></div>
+                        <div class="price-tier"><span>+ Full system administration</span><strong>~$300/mo</strong></div>
+                    </div>
+                </div>
+            </div>
+            <p class="pricing-note">Every build is quoted individually after our chat. These are starting points so you know roughly what to expect.</p>
+        </div>
+    </section>
+
+    <!-- Proof -->
+    <section id="proof" class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="eyebrow">Proof</span>
+                <h2>Real systems, real businesses</h2>
+                <p>Tools built from scratch for businesses the marketplace forgot.</p>
+            </div>
+            <div class="cases-grid">
+                <div class="case-card">
+                    <div class="case-image">
+                        <svg viewBox="0 0 360 190" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="360" height="190" fill="#E9EEEB"/>
+                            <rect x="40" y="20" width="280" height="150" rx="12" fill="#FFFFFF"/>
+                            <path d="M40 32 a12 12 0 0 1 12 -12 h256 a12 12 0 0 1 12 12 v22 h-280 z" fill="#1A3C34"/>
+                            <text x="56" y="42" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#FFFFFF">Proof of Delivery</text>
+                            <rect x="248" y="29" width="58" height="16" rx="8" fill="#3E8E6B"/>
+                            <text x="277" y="40.5" font-family="Arial, sans-serif" font-size="8.5" fill="#FFFFFF" text-anchor="middle">Delivered</text>
+                            <text x="56" y="80" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#2C2C2C">Order #4821</text>
+                            <text x="56" y="95" font-family="Arial, sans-serif" font-size="8.5" fill="#9AA3A0">12 Wynnum Rd, Brisbane</text>
+                            <text x="56" y="116" font-family="Arial, sans-serif" font-size="7.5" fill="#9AA3A0">SIGNATURE</text>
+                            <rect x="56" y="120" width="118" height="36" rx="6" fill="#F4F6F5" stroke="#E2E7E4"/>
+                            <path d="M68 146 q8 -20 16 -3 q6 -15 13 -1 q7 -16 15 -2 q6 9 14 -5" stroke="#1A3C34" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+                            <text x="190" y="116" font-family="Arial, sans-serif" font-size="7.5" fill="#9AA3A0">PHOTO</text>
+                            <clipPath id="podPhoto"><rect x="190" y="120" width="114" height="36" rx="6"/></clipPath>
+                            <g clip-path="url(#podPhoto)">
+                                <rect x="190" y="120" width="114" height="36" fill="#D4E0D9"/>
+                                <circle cx="206" cy="132" r="5" fill="#E07A3D"/>
+                                <path d="M190 156 l22 -16 l16 11 l18 -12 l58 17 v0 z" fill="#B7C9BF"/>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="case-content">
+                        <div class="case-industry">Logistics & Delivery</div>
+                        <h3>Proof of Delivery App</h3>
+                        <p>A delivery business couldn't find any off-the-shelf tool that fit their workflow. Built a custom proof-of-delivery system tailored to exactly how they operate, capturing sign-offs, photos, and records in the field.</p>
+                    </div>
+                </div>
+                <div class="case-card">
+                    <div class="case-image">
+                        <svg viewBox="0 0 360 190" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="360" height="190" fill="#E9EEEB"/>
+                            <rect x="30" y="18" width="300" height="154" rx="12" fill="#FFFFFF"/>
+                            <text x="46" y="41" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1A3C34">Invoices &amp; Receipts</text>
+                            <rect x="250" y="29" width="66" height="16" rx="8" fill="#C45C26"/>
+                            <text x="283" y="40" font-family="Arial, sans-serif" font-size="8" fill="#FFFFFF" text-anchor="middle">Auto-sorted</text>
+                            <g font-family="Arial, sans-serif">
+                                <rect x="46" y="54" width="268" height="24" rx="6" fill="#F6F4F0"/>
+                                <text x="56" y="69" font-size="9" fill="#2C2C2C">Bunnings · Materials</text>
+                                <rect x="196" y="59" width="50" height="14" rx="7" fill="#E7EFE9"/>
+                                <text x="221" y="68.5" font-size="7.5" fill="#3E8E6B" text-anchor="middle">Supplies</text>
+                                <text x="304" y="69" font-size="9" font-weight="bold" fill="#2C2C2C" text-anchor="end">$248.50</text>
+
+                                <rect x="46" y="82" width="268" height="24" rx="6" fill="#F6F4F0"/>
+                                <text x="56" y="97" font-size="9" fill="#2C2C2C">Shell · Fuel</text>
+                                <rect x="196" y="87" width="50" height="14" rx="7" fill="#FBEEE4"/>
+                                <text x="221" y="96.5" font-size="7.5" fill="#C45C26" text-anchor="middle">Vehicle</text>
+                                <text x="304" y="97" font-size="9" font-weight="bold" fill="#2C2C2C" text-anchor="end">$92.80</text>
+
+                                <rect x="46" y="110" width="268" height="24" rx="6" fill="#F6F4F0"/>
+                                <text x="56" y="125" font-size="9" fill="#2C2C2C">Telstra · Phone</text>
+                                <rect x="196" y="115" width="50" height="14" rx="7" fill="#E7EFE9"/>
+                                <text x="221" y="124.5" font-size="7.5" fill="#3E8E6B" text-anchor="middle">Utilities</text>
+                                <text x="304" y="125" font-size="9" font-weight="bold" fill="#2C2C2C" text-anchor="end">$120.00</text>
+                            </g>
+                            <line x1="46" y1="144" x2="314" y2="144" stroke="#E2E7E4"/>
+                            <text x="46" y="160" font-family="Arial, sans-serif" font-size="9" fill="#9AA3A0">Ready to invoice</text>
+                            <text x="314" y="161" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#C45C26" text-anchor="end">$461.30</text>
+                        </svg>
+                    </div>
+                    <div class="case-content">
+                        <div class="case-industry">Finance Automation</div>
+                        <h3>Automated Invoicing & Receipts</h3>
+                        <p>Built an automated system that categorises receipts and generates invoices ready for a quick review, turning hours of manual data entry into a few minutes of checking.</p>
+                    </div>
+                </div>
+                <div class="case-card">
+                    <div class="case-image">
+                        <svg viewBox="0 0 360 190" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="360" height="190" fill="#E9EEEB"/>
+                            <rect x="30" y="18" width="300" height="154" rx="12" fill="#FFFFFF"/>
+                            <text x="46" y="41" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1A3C34">Timesheets: This Week</text>
+                            <g font-family="Arial, sans-serif" font-size="9">
+                                <text x="46" y="66" fill="#2C2C2C">Mon</text><text x="150" y="66" fill="#5A5A5A" text-anchor="end">8.0 hrs</text>
+                                <line x1="46" y1="73" x2="150" y2="73" stroke="#EEF1EF"/>
+                                <text x="46" y="88" fill="#2C2C2C">Tue</text><text x="150" y="88" fill="#5A5A5A" text-anchor="end">7.5 hrs</text>
+                                <line x1="46" y1="95" x2="150" y2="95" stroke="#EEF1EF"/>
+                                <text x="46" y="110" fill="#2C2C2C">Wed</text><text x="150" y="110" fill="#5A5A5A" text-anchor="end">8.0 hrs</text>
+                                <line x1="46" y1="117" x2="150" y2="117" stroke="#EEF1EF"/>
+                                <text x="46" y="132" fill="#2C2C2C">Thu</text><text x="150" y="132" fill="#5A5A5A" text-anchor="end">6.5 hrs</text>
+                                <line x1="46" y1="139" x2="150" y2="139" stroke="#EEF1EF"/>
+                                <text x="46" y="154" fill="#2C2C2C">Fri</text><text x="150" y="154" fill="#5A5A5A" text-anchor="end">8.0 hrs</text>
+                            </g>
+                            <text x="200" y="62" font-family="Arial, sans-serif" font-size="7.5" fill="#9AA3A0">HOURS LOGGED</text>
+                            <g>
+                                <rect x="206" y="120" width="16" height="30" rx="2" fill="#2D5A4E"/>
+                                <rect x="230" y="112" width="16" height="38" rx="2" fill="#2D5A4E"/>
+                                <rect x="254" y="124" width="16" height="26" rx="2" fill="#2D5A4E"/>
+                                <rect x="278" y="132" width="16" height="18" rx="2" fill="#2D5A4E"/>
+                                <rect x="302" y="116" width="16" height="34" rx="2" fill="#C45C26"/>
+                            </g>
+                            <line x1="206" y1="150" x2="318" y2="150" stroke="#E2E7E4"/>
+                            <text x="200" y="80" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#1A3C34">38.0</text>
+                            <text x="262" y="80" font-family="Arial, sans-serif" font-size="9" fill="#9AA3A0">total hrs</text>
+                        </svg>
+                    </div>
+                    <div class="case-content">
+                        <div class="case-industry">Workforce</div>
+                        <h3>Timesheet & Reporting Tools</h3>
+                        <p>Custom timesheet capture with the reporting the business actually needed, built to fit the way they already work rather than forcing a change in process.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="contact" class="section cta">
+        <div class="container">
+            <h2>Let's talk about your business</h2>
+            <p>The first conversation is free. Tell us what's not working, and we'll tell you honestly whether we can build something that fixes it.</p>
             <div class="cta-buttons">
-                <a href="mailto:hello@smallbizsystems.com.au?subject=Free%20Assessment%20Enquiry" class="btn btn-primary">Book Free 15-Min Call →</a>
-                <a href="tel:0400000000" class="btn btn-outline">Call: 0400 000 000</a>
+                <a href="mailto:steve@smallbizsystems.com.au?subject=Free%20Chat%20Enquiry" class="btn btn-primary">Get in Touch →</a>
+                <a href="tel:0406865448" class="btn btn-outline">Call: 0406 865 448</a>
             </div>
-            <p style="margin-top: 24px; font-size: 0.9rem;" class="text-muted">Or email directly: <a href="mailto:hello@smallbizsystems.com.au" style="color: var(--color-accent);">hello@smallbizsystems.com.au</a></p>
+            <p style="margin-top: 32px; font-size: 0.9rem;" class="text-muted">Or email directly: <a href="mailto:steve@smallbizsystems.com.au" style="color: var(--color-accent);">steve@smallbizsystems.com.au</a></p>
         </div>
     </section>
 
@@ -1209,41 +811,145 @@
         <div class="container">
             <div class="footer-grid">
                 <div>
-                    <div class="footer-brand">SmallBiz<span>Systems</span></div>
-                    <p class="footer-desc">Systems implementation and optimisation for Brisbane small businesses. Fixed prices, real results, no BS.</p>
+                    <div class="footer-brand">
+                        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="footGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#2D5A4E"/>
+                                    <stop offset="100%" style="stop-color:#1A3C34"/>
+                                </linearGradient>
+                            </defs>
+                            <rect x="4" y="4" width="112" height="112" rx="20" fill="#0F2620"/>
+                            <rect x="4" y="4" width="112" height="112" rx="20" fill="none" stroke="#C45C26" stroke-width="3"/>
+                            <circle cx="78" cy="28" r="10" fill="#C45C26"/>
+                            <circle cx="42" cy="52" r="10" fill="#FFFFFF"/>
+                            <circle cx="78" cy="68" r="10" fill="#FFFFFF"/>
+                            <circle cx="42" cy="92" r="10" fill="#C45C26"/>
+                            <path d="M70 36 L50 46" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+                            <polygon points="50,46 58,42 56,50" fill="#FFFFFF"/>
+                            <path d="M50 58 L70 64" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+                            <polygon points="70,64 62,60 64,68" fill="#FFFFFF"/>
+                            <path d="M70 76 L50 86" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+                            <polygon points="50,86 58,82 56,90" fill="#FFFFFF"/>
+                        </svg>
+                        SmallBiz<span>Systems</span>
+                    </div>
+                    <p class="footer-desc">Custom software and automation, built around how your business actually works. Brisbane-based. Built for you, run for you.</p>
                 </div>
                 <div>
-                    <h4>Services</h4>
+                    <h4>Explore</h4>
                     <ul class="footer-links">
-                        <li><a href="#services">Systems Health Check</a></li>
-                        <li><a href="#services">Implementation</a></li>
-                        <li><a href="#services">Optimisation</a></li>
-                        <li><a href="#services">Ongoing Support</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Resources</h4>
-                    <ul class="footer-links">
-                        <li><a href="#download">Free Assessment Guide</a></li>
-                        <li><a href="#results">Case Studies</a></li>
-                        <li><a href="#">Blog (Coming Soon)</a></li>
+                        <li><a href="#build">What I Build</a></li>
+                        <li><a href="#how">How It Works</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#proof">Proof</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4>Contact</h4>
                     <ul class="footer-links">
-                        <li><a href="mailto:hello@smallbizsystems.com.au">hello@smallbizsystems.com.au</a></li>
-                        <li><a href="tel:0400000000">0400 000 000</a></li>
-                        <li><a href="#">LinkedIn</a></li>
-                        <li>Albany Creek, Brisbane QLD</li>
+                        <li><a href="mailto:steve@smallbizsystems.com.au">steve@smallbizsystems.com.au</a></li>
+                        <li><a href="tel:0406865448">0406 865 448</a></li>
+                        <li>Brisbane, QLD</li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2025 SmallBiz Systems. ABN: XX XXX XXX XXX. All rights reserved.</p>
-                <p style="margin-top: 8px;">*Statistic from Australian Government Digital Business Plan research</p>
+                <p>© 2025 SmallBiz Systems. ABN: 14 670 554 748. All rights reserved.</p>
             </div>
         </div>
     </footer>
+    <!-- Contact Modal -->
+    <div class="modal-overlay" id="contactModal">
+        <div class="modal">
+            <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+            <div id="formContent">
+                <h3>Get in touch</h3>
+                <p class="modal-sub">Tell us a bit about your business and what's not working. We'll get back to you to set up a time.</p>
+                <form id="contactForm" action="https://formsubmit.co/steve@smallbizsystems.com.au" method="POST">
+                    <!-- FormSubmit settings -->
+                    <input type="hidden" name="_subject" value="New enquiry from SmallBiz Systems website">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="text" name="_honey" style="display:none">
+
+                    <div class="form-group">
+                        <label for="cf-name">Your Name</label>
+                        <input type="text" id="cf-name" name="name" placeholder="e.g. Sarah Mitchell" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cf-email">Email</label>
+                        <input type="email" id="cf-email" name="email" placeholder="e.g. sarah@yourbusiness.com.au" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cf-phone">Phone (optional)</label>
+                        <input type="tel" id="cf-phone" name="phone" placeholder="e.g. 0406 865 448">
+                    </div>
+                    <div class="form-group">
+                        <label for="cf-message">What's not working?</label>
+                        <textarea id="cf-message" name="message" placeholder="A quick description of your business and the problem you'd like to solve…" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Enquiry →</button>
+                    <p class="form-privacy">🔒 Goes straight to our inbox. No spam, no lists, ever.</p>
+                </form>
+            </div>
+            <div class="form-success" id="formSuccess">
+                <div class="check">✅</div>
+                <h3>Thanks, got it!</h3>
+                <p class="text-muted">We'll be in touch soon to set up a time for a chat.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            const modal = document.getElementById('contactModal');
+            const closeBtn = document.getElementById('modalClose');
+            const form = document.getElementById('contactForm');
+            const formContent = document.getElementById('formContent');
+            const formSuccess = document.getElementById('formSuccess');
+
+            function openModal(e) {
+                if (e) e.preventDefault();
+                modal.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            }
+            function closeModal() {
+                modal.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+
+            // Wire every "Book a Free Chat" / contact button to open the modal.
+            // Catches buttons linking to #contact and any mailto: links.
+            document.querySelectorAll('a[href="#contact"], a[href^="mailto:"]').forEach(function (el) {
+                el.addEventListener('click', openModal);
+            });
+
+            closeBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', function (e) {
+                if (e.target === modal) closeModal();
+            });
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') closeModal();
+            });
+
+            // Submit via fetch so the user stays on the page and sees a success message.
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const data = new FormData(form);
+                fetch(form.action, {
+                    method: 'POST',
+                    body: data,
+                    headers: { 'Accept': 'application/json' }
+                }).then(function (res) {
+                    formContent.style.display = 'none';
+                    formSuccess.classList.add('show');
+                }).catch(function () {
+                    // Fallback: let the form submit normally
+                    form.submit();
+                });
+            });
+        })();
+    </script>
 </body>
 </html>
