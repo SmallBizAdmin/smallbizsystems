@@ -9,7 +9,7 @@
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="apple-touch-icon" href="/favicon-180.png">
     <meta name="theme-color" content="#23473E">
-    <meta name="description" content="Custom-built software and automation for small businesses. Built around how you already work, not the other way around. Brisbane-based.">
+    <meta name="description" content="Not Software as a Service — Software Built For You. Custom software and automation for small businesses, built around how you already work and run for you. Brisbane-based.">
     <link rel="canonical" href="https://www.smallbizsystems.com.au/">
 
     <!-- Social sharing -->
@@ -17,12 +17,12 @@
     <meta property="og:url" content="https://www.smallbizsystems.com.au/">
     <meta property="og:site_name" content="SmallBizSystems">
     <meta property="og:title" content="SmallBizSystems | Custom Software Built Around Your Business">
-    <meta property="og:description" content="Custom-built software and automation for small businesses. Built around how you already work, not the other way around. Brisbane-based.">
+    <meta property="og:description" content="Not Software as a Service — Software Built For You. Custom software and automation for small businesses, built around how you already work and run for you. Brisbane-based.">
     <meta property="og:image" content="https://www.smallbizsystems.com.au/favicon-180.png">
     <meta property="og:locale" content="en_AU">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="SmallBizSystems | Custom Software Built Around Your Business">
-    <meta name="twitter:description" content="Custom-built software and automation for small businesses. Built around how you already work, not the other way around. Brisbane-based.">
+    <meta name="twitter:description" content="Not Software as a Service — Software Built For You. Custom software and automation for small businesses, built around how you already work and run for you. Brisbane-based.">
     <meta name="twitter:image" content="https://www.smallbizsystems.com.au/favicon-180.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -187,7 +187,12 @@
         }
         .hero h1 { margin-bottom: 28px; }
         .hero h1 .highlight { color: var(--color-accent); }
-        .hero-text { font-size: 1.3rem; color: var(--color-text-muted); margin: 0 auto 36px; max-width: 640px; }
+        .hero-text { font-size: 1.3rem; color: var(--color-text-muted); margin: 0 auto 28px; max-width: 640px; }
+        .hero-tagline {
+            font-family: var(--font-display); font-size: 1.35rem; font-weight: 600;
+            color: var(--color-primary); margin: 0 auto 34px; line-height: 1.4;
+        }
+        .hero-tagline span { color: var(--color-accent); }
         .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
 
         /* Insight / Problem */
@@ -215,6 +220,13 @@
         }
         .insight-card .q { font-family: var(--font-display); font-size: 1.15rem; color: var(--color-white); margin-bottom: 10px; }
         .insight-card p { font-size: 0.95rem; opacity: 0.8; margin-bottom: 0; }
+        .insight-payoff {
+            text-align: center; margin: 44px auto 0; max-width: 680px;
+            font-family: var(--font-display); font-size: 1.3rem; line-height: 1.45;
+            color: var(--color-white);
+        }
+        .insight-payoff span { color: var(--color-accent-light); }
+        .insight .insight-payoff { opacity: 1; }
 
         /* Section header */
         .section-header { text-align: center; max-width: 720px; margin: 0 auto 56px; }
@@ -309,6 +321,15 @@
         }
         .admin-point h4 { color: var(--color-white); margin-bottom: 8px; }
         .admin-point p { font-size: 0.95rem; opacity: 0.9; margin-bottom: 0; }
+        .admin-promise {
+            margin: 36px auto 0; max-width: 700px;
+            background: rgba(255,255,255,0.16);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: var(--radius-md); padding: 24px 28px;
+            font-family: var(--font-display); font-size: 1.2rem; line-height: 1.45;
+        }
+        .admin-promise p { margin-bottom: 0; }
+        .admin-promise strong { font-weight: 700; }
 
         /* Why custom */
         .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
@@ -511,9 +532,10 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <span class="hero-badge">Brisbane-Based Custom Software</span>
+                <span class="hero-badge">Built For You Software · Brisbane</span>
                 <h1>Most software makes you change how you work.<br><span class="highlight">We build software around how you already work.</span></h1>
                 <p class="hero-text">Custom-built tools and automations for small businesses with needs that off-the-shelf software just doesn't fit. We figure out your process, then build the system that runs it.</p>
+                <p class="hero-tagline">Not Software as a Service. <span>Software Built For You.</span></p>
                 <div class="hero-ctas">
                     <a href="#contact" class="btn btn-primary">Get in Touch →</a>
                     <a href="#build" class="btn btn-outline">See What's Possible</a>
@@ -528,25 +550,26 @@
             <div class="insight-intro">
                 <span class="eyebrow" style="color: var(--color-accent-light);">The Problem</span>
                 <p class="insight-lead">Off-the-shelf apps do <span class="accent">80% of what you need</span>, and make you work around the other 20% every day.</p>
-                <p style="margin-bottom: 0;">No one builds for a business quite like yours. So ask yourself:</p>
+                <p style="margin-bottom: 0;">No one builds for a business quite like yours. Sound familiar?</p>
             </div>
             <div class="insight-grid">
                 <div class="insight-card">
-                    <div class="icon">🔁</div>
-                    <div class="q">A task done the same way every day?</div>
-                    <p>Repetitive and predictable means it can be automated.</p>
+                    <div class="icon">🔍</div>
+                    <div class="q">Nothing quite fits</div>
+                    <p>You've looked. Everything is built for a business roughly like yours, and roughly isn't good enough.</p>
                 </div>
                 <div class="insight-card">
-                    <div class="icon">🧠</div>
-                    <div class="q">A process that lives in one head?</div>
-                    <p>A system makes it permanent, even when they're away.</p>
+                    <div class="icon">🧩</div>
+                    <div class="q">It all kind of works</div>
+                    <p>Three apps, two spreadsheets and a group chat. Each does part of the job. None of them does yours.</p>
                 </div>
                 <div class="insight-card">
-                    <div class="icon">📊</div>
-                    <div class="q">A spreadsheet holding it together?</div>
-                    <p>Great, until it breaks, gets overwritten, or hits its limit.</p>
+                    <div class="icon">🔄</div>
+                    <div class="q">Updates you never asked for</div>
+                    <p>They move a button, drop the feature you relied on, and add a tier you suddenly need. Your process changes because their roadmap did.</p>
                 </div>
             </div>
+            <p class="insight-payoff">None of that is bad luck. It's what happens when software is built for everyone. <span>The fix isn't a better app — it's a different kind of software.</span></p>
         </div>
     </section>
 
@@ -554,31 +577,32 @@
     <section class="section section-alt">
         <div class="container">
             <div class="section-header">
-                <span class="eyebrow">Why Custom</span>
-                <h2>Built for you beats built for everyone</h2>
+                <span class="eyebrow">The Difference</span>
+                <h2>You're not choosing between two products</h2>
+                <p>SaaS is <strong>Software as a Service</strong> — built for everyone, sold to you by the month. BFY is <strong>Built For You</strong> — software that only exists because your business does. Comparing them feature by feature misses the point. They aren't the same kind of thing.</p>
             </div>
             <div class="compare-grid">
                 <div class="compare-col compare-off">
-                    <div class="compare-label">Off-the-Shelf SaaS</div>
-                    <h3>Built for the average business</h3>
+                    <div class="compare-label">SaaS · Software as a Service</div>
+                    <h3>Built for everyone</h3>
                     <ul class="compare-list">
+                        <li>Built before they'd heard of you</li>
                         <li>You bend your process to fit the software</li>
-                        <li>Pay for features you'll never use, miss the one you need</li>
-                        <li>Built for the average business, not your niche</li>
-                        <li>You set it up, run it, and admin it yourself</li>
+                        <li>Updates arrive whether you wanted them or not</li>
+                        <li>Features you'll never use, and the one you need is missing</li>
                         <li>Support is a ticket queue in another timezone</li>
-                        <li>Costs rise with every user you add</li>
+                        <li>The price climbs with every user you add</li>
                     </ul>
                 </div>
                 <div class="compare-col compare-custom">
-                    <div class="compare-label">Custom-Built by SmallBizSystems</div>
+                    <div class="compare-label">BFY · Built For You</div>
                     <h3>Built for your business</h3>
                     <ul class="compare-list">
-                        <li>The software fits how you already work</li>
-                        <li>Only what you need, including what you can't buy elsewhere</li>
-                        <li>Designed around your exact niche and process</li>
-                        <li>We build it, host it, and manage it for you</li>
-                        <li>A direct line to the person who built it</li>
+                        <li>Built after we'd spent a day learning how you work</li>
+                        <li>It fits your process because we traced it from yours</li>
+                        <li>The only updates you get are the ones you asked for</li>
+                        <li>Only what you need, including what you can't buy anywhere</li>
+                        <li>A direct line to the people who built it</li>
                         <li>One predictable fee, whatever your team size</li>
                     </ul>
                 </div>
@@ -590,8 +614,8 @@
     <section class="admin section">
         <div class="container">
             <div class="admin-inner">
-                <span class="eyebrow" style="color: var(--color-white);">The Best Part</span>
-                <h2>We don't just build it. We manage it for you.</h2>
+                <span class="eyebrow" style="color: var(--color-white);">Run For You</span>
+                <h2>Built for you is only half of it. We run it for you too.</h2>
                 <p class="admin-lead">We handle everything technical, from the first set-up right through to ongoing upkeep, so you can simply use your system and get on with running your business.</p>
                 <div class="admin-points">
                     <div class="admin-point">
@@ -614,6 +638,9 @@
                         <h4>Hosting &amp; tech handled</h4>
                         <p>Servers, databases, security, backups. All of it is our responsibility, not yours. It just works.</p>
                     </div>
+                </div>
+                <div class="admin-promise">
+                    <p>And when the business changes, the system changes with it. <strong>The only updates you will ever get are the ones you asked for.</strong></p>
                 </div>
             </div>
         </div>
