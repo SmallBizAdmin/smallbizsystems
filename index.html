@@ -328,26 +328,42 @@
 
         /* Pricing */
         .pricing-intro { text-align: center; max-width: 680px; margin: 0 auto 48px; }
-        .price-table { max-width: 860px; margin: 0 auto; background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm); }
-        .price-table-head, .price-row { display: grid; grid-template-columns: 1.6fr 1fr 1fr; align-items: center; }
+        .price-table { max-width: 960px; margin: 0 auto; background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm); }
+        .price-table-head, .price-row { display: grid; grid-template-columns: 2.2fr 1fr 1fr; align-items: center; }
         .price-table-head { background: var(--color-primary); color: var(--color-white); padding: 18px 28px; }
         .price-table-head > div { font-size: 0.78rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
-        .price-table-head .pt-build, .price-row .pt-build { text-align: center; }
+        .price-table-head .pt-impl, .price-row .pt-impl { text-align: center; }
         .price-table-head .pt-run, .price-row .pt-run { text-align: right; }
         .price-table-head .pt-run { color: var(--color-accent-light); }
-        .price-row { padding: 22px 28px; border-top: 1px solid var(--color-border); }
-        .price-row .pt-need { font-size: 1.05rem; font-weight: 600; color: var(--color-primary); }
-        .price-row .pt-build { font-size: 1rem; color: var(--color-text); }
+        .price-row { padding: 26px 28px; border-top: 1px solid var(--color-border); }
+        .price-row .pt-need { padding-right: 24px; }
+        .price-row .pt-name { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; color: var(--color-primary); margin-bottom: 7px; }
+        .price-row .pt-fit { font-size: 0.95rem; color: var(--color-text); margin-bottom: 9px; line-height: 1.5; }
+        .price-row .pt-fit strong { color: var(--color-accent); font-weight: 600; }
+        .price-row .pt-examples { font-size: 0.84rem; color: var(--color-text-muted); line-height: 1.55; margin-bottom: 0; }
+        .price-row .pt-impl { font-size: 1rem; color: var(--color-text); }
         .price-row .pt-run { font-size: 1.05rem; font-weight: 700; color: var(--color-accent); }
         @media (max-width: 680px) {
             .price-table-head { display: none; }
-            .price-row { grid-template-columns: 1fr; padding: 20px 22px; gap: 6px; text-align: left; }
+            .price-row { grid-template-columns: 1fr; padding: 22px; gap: 6px; text-align: left; }
             .price-row > div { display: flex; justify-content: space-between; align-items: baseline; text-align: left; }
-            .price-row .pt-build, .price-row .pt-run { text-align: right; }
-            .price-row .pt-need { font-size: 1.1rem; margin-bottom: 4px; }
-            .price-row .pt-build::before, .price-row .pt-run::before { content: attr(data-label); font-size: 0.85rem; font-weight: 500; color: var(--color-text-muted); text-transform: none; letter-spacing: 0; }
+            .price-row .pt-impl, .price-row .pt-run { text-align: right; }
+            .price-row .pt-need { display: block; padding-right: 0; margin-bottom: 10px; }
+            .price-row .pt-name { font-size: 1.15rem; }
+            .price-row .pt-impl::before, .price-row .pt-run::before { content: attr(data-label); font-size: 0.85rem; font-weight: 500; color: var(--color-text-muted); text-transform: none; letter-spacing: 0; }
         }
-        .pricing-note { text-align: center; margin-top: 32px; color: var(--color-text-muted); font-size: 0.95rem; max-width: 660px; margin-left: auto; margin-right: auto; }
+        .pricing-why {
+            max-width: 960px; margin: 28px auto 0;
+            background: var(--color-bg-alt);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            padding: 26px 30px;
+        }
+        .pricing-why h4 { color: var(--color-primary); margin-bottom: 10px; }
+        .pricing-why p { margin-bottom: 0; color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.65; }
+        .pricing-why em { color: var(--color-text); font-style: normal; font-weight: 600; }
+        @media (max-width: 680px) { .pricing-why { padding: 22px; } }
+        .pricing-note { text-align: center; margin-top: 28px; color: var(--color-text-muted); font-size: 0.95rem; max-width: 660px; margin-left: auto; margin-right: auto; }
 
         /* Proof / case studies */
         .cases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
@@ -696,7 +712,7 @@
                 <div class="step">
                     <div class="step-num">3</div>
                     <h4>Quote</h4>
-                    <p>A fixed upfront build fee and a simple monthly fee. You accept when you're happy, or you don't.</p>
+                    <p>A fixed upfront implementation fee and a simple monthly fee. You accept when you're happy, or you don't.</p>
                 </div>
                 <div class="step">
                     <div class="step-num">4</div>
@@ -723,31 +739,47 @@
             <div class="pricing-intro">
                 <span class="eyebrow">Pricing</span>
                 <h2>Simple, transparent, no surprises</h2>
-                <p>Two parts: a one-off fee to build it, and a monthly fee to run it.</p>
+                <p>Two parts: a one-off implementation fee, and a monthly fee to run it.</p>
             </div>
             <div class="price-table">
                 <div class="price-table-head">
-                    <div class="pt-need">What you need</div>
-                    <div class="pt-build">To build (one-off)</div>
+                    <div class="pt-need">Which sounds like you?</div>
+                    <div class="pt-impl">Implementation (one-off)</div>
                     <div class="pt-run">Monthly (all in)</div>
                 </div>
                 <div class="price-row">
-                    <div class="pt-need" data-label="What you need">Simple tool or automation</div>
-                    <div class="pt-build" data-label="To build">$2k – $4k</div>
-                    <div class="pt-run" data-label="Monthly (all in)">from ~$100/mo</div>
+                    <div class="pt-need">
+                        <div class="pt-name">One Job, Automated</div>
+                        <p class="pt-fit"><strong>This is you if</strong> the job is always the same shape. A timesheet is always a timesheet — once it's built, it just runs.</p>
+                        <p class="pt-examples">Timesheets · Receipts &amp; invoicing · Digital forms &amp; checklists · Payment reminders</p>
+                    </div>
+                    <div class="pt-impl" data-label="Implementation">Up to $2k</div>
+                    <div class="pt-run" data-label="Monthly (all in)">from $100/mo</div>
                 </div>
                 <div class="price-row">
-                    <div class="pt-need" data-label="What you need">Medium system</div>
-                    <div class="pt-build" data-label="To build">$5k – $10k</div>
-                    <div class="pt-run" data-label="Monthly (all in)">~$200 – $300/mo</div>
+                    <div class="pt-need">
+                        <div class="pt-name">A Few Moving Parts</div>
+                        <p class="pt-fit"><strong>This is you if</strong> there are a few different things to keep track of, and they need to talk to each other.</p>
+                        <p class="pt-examples">Job tracking · Quote-to-invoice · Run sheets &amp; scheduling · Inventory tracking</p>
+                    </div>
+                    <div class="pt-impl" data-label="Implementation">$2k – $5k</div>
+                    <div class="pt-run" data-label="Monthly (all in)">$200 – $500/mo</div>
                 </div>
                 <div class="price-row">
-                    <div class="pt-need" data-label="What you need">Larger / complex system</div>
-                    <div class="pt-build" data-label="To build">Let's talk</div>
+                    <div class="pt-need">
+                        <div class="pt-name">A System Your Team Runs On</div>
+                        <p class="pt-fit"><strong>This is you if</strong> every job is a bit different, there's a lot to capture, and it has to fit with your other tools.</p>
+                        <p class="pt-examples">Proof of delivery · Customer portals · Multi-site operations · MYOB &amp; Xero integrations</p>
+                    </div>
+                    <div class="pt-impl" data-label="Implementation">$5k+</div>
                     <div class="pt-run" data-label="Monthly (all in)">Quoted to match</div>
                 </div>
             </div>
-            <p class="pricing-note">The monthly fee is all in: hosting, backups, bug fixes, small tweaks, and system administration are all covered. Every system is quoted individually after our chat, so these are starting points to give you a feel for what to expect.</p>
+            <div class="pricing-why">
+                <h4>Why the monthly changes with the tier</h4>
+                <p>The monthly covers looking after it, and how much looking after depends on how much system there is. <em>A timesheet is always a timesheet</em> — there's only so much it can ever need to do. A delivery system is the opposite: hundreds of variations to account for, far more information to keep straight, and always a next thing worth adding. The more moving parts, the more there is to keep running, supported, and improving over time.</p>
+            </div>
+            <p class="pricing-note">The monthly fee is all in: hosting, backups, bug fixes, small tweaks, and system administration are all covered. Every system is quoted individually after our chat, so these are starting points to give you a feel for what to expect. Not sure which one you are? Most people aren't at first — that's exactly what the free chat is for.</p>
         </div>
     </section>
 
