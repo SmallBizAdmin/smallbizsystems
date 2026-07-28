@@ -431,6 +431,34 @@
         .pricing-why p { margin-bottom: 0; color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.65; }
         .pricing-why em { color: var(--color-text); font-style: normal; font-weight: 600; }
         @media (max-width: 680px) { .pricing-why { padding: 22px; } }
+        /* Multiple systems */
+        .multi {
+            max-width: 960px; margin: 24px auto 0;
+            background: var(--color-white);
+            border: 1px solid var(--color-border);
+            border-top: 3px solid var(--color-accent);
+            border-radius: var(--radius-md);
+            padding: 32px;
+        }
+        .multi-head { text-align: center; max-width: 660px; margin: 0 auto 26px; }
+        .multi-head h3 { font-size: 1.5rem; margin-bottom: 10px; }
+        .multi-head p { margin-bottom: 0; color: var(--color-text-muted); font-size: 1rem; }
+        .multi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        @media (max-width: 768px) { .multi-grid { grid-template-columns: 1fr; } }
+        .multi-item {
+            background: var(--color-bg-alt); border-radius: var(--radius-sm);
+            padding: 22px 20px; text-align: center;
+        }
+        .multi-item .icon { display: block; font-size: 1.5rem; margin-bottom: 10px; }
+        .multi-item h4 { color: var(--color-primary); margin-bottom: 8px; }
+        .multi-item p { margin-bottom: 0; font-size: 0.92rem; color: var(--color-text-muted); line-height: 1.55; }
+        .multi-close {
+            text-align: center; margin: 26px auto 0; max-width: 700px;
+            font-family: var(--font-display); font-size: 1.2rem;
+            color: var(--color-primary); line-height: 1.5;
+        }
+        .multi-close span { color: var(--color-accent); }
+        @media (max-width: 680px) { .multi { padding: 24px 22px; } }
         .pricing-note { text-align: center; margin-top: 28px; color: var(--color-text-muted); font-size: 0.95rem; max-width: 660px; margin-left: auto; margin-right: auto; }
 
         /* Proof / case studies */
@@ -958,6 +986,30 @@
             <div class="pricing-why">
                 <h4>Why the monthly changes with the tier</h4>
                 <p>The monthly covers looking after it, and how much looking after depends on how much system there is. <em>A timesheet is always a timesheet.</em> There's only so much it can ever need to do. A delivery system is the opposite: hundreds of variations to account for, far more information to keep straight, and always a next thing worth adding. The more moving parts, the more there is to keep running, supported, and improving over time.</p>
+            </div>
+            <div class="multi">
+                <div class="multi-head">
+                    <h3>Most businesses don't stop at one</h3>
+                    <p>People start with one system, watch it work, and come back for the next thing. When they do, the numbers above stop applying.</p>
+                </div>
+                <div class="multi-grid">
+                    <div class="multi-item">
+                        <span class="icon">🤝</span>
+                        <h4>Less to implement</h4>
+                        <p>The discovery is already done. We know your process, your data and how the business runs, so there's far less to work out and far less to charge for.</p>
+                    </div>
+                    <div class="multi-item">
+                        <span class="icon">📉</span>
+                        <h4>A fraction on the monthly</h4>
+                        <p>Same hosting, same admin, same people looking after it. A second system doesn't double your monthly, it adds a slice to it.</p>
+                    </div>
+                    <div class="multi-item">
+                        <span class="icon">🔗</span>
+                        <h4>They talk to each other</h4>
+                        <p>Where it makes sense, your systems connect. Something entered in one shows up in the next, so the whole lot works as one.</p>
+                    </div>
+                </div>
+                <p class="multi-close">The end goal isn't one system. It's four or five that run the business between them, <span>for nowhere near four or five times the price.</span></p>
             </div>
             <p class="pricing-note">The monthly fee is all in: hosting, backups, bug fixes, small tweaks, and system administration are all covered. Every system is quoted individually after our chat, so these are starting points to give you a feel for what to expect. Not sure which one you are? Most people aren't at first. That's exactly what the free chat is for.</p>
         </div>
