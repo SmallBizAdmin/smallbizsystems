@@ -452,6 +452,33 @@
         .multi-item .icon { display: block; font-size: 1.5rem; margin-bottom: 10px; }
         .multi-item h4 { color: var(--color-primary); margin-bottom: 8px; }
         .multi-item p { margin-bottom: 0; font-size: 0.92rem; color: var(--color-text-muted); line-height: 1.55; }
+        .multi-math { margin-top: 22px; border: 1px solid var(--color-border); border-radius: var(--radius-sm); overflow: hidden; }
+        .mm-badge {
+            display: block; background: var(--color-primary); color: var(--color-white);
+            font-size: 0.72rem; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase;
+            padding: 9px 18px; text-align: center;
+        }
+        .mm-row { display: grid; grid-template-columns: 1.4fr 1fr 1fr; align-items: center; padding: 14px 18px; }
+        .mm-row + .mm-row { border-top: 1px solid var(--color-border); }
+        .mm-colhead { background: var(--color-bg-alt); padding-top: 10px; padding-bottom: 10px; }
+        .mm-colhead > div { font-size: 0.7rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--color-text-muted); }
+        .mm-row > div:nth-child(2), .mm-row > div:nth-child(3) { text-align: center; }
+        .mm-label { font-weight: 600; color: var(--color-primary); font-size: 0.95rem; }
+        .mm-val { font-weight: 700; color: var(--color-accent); font-size: 0.98rem; }
+        .mm-val.full { color: var(--color-text-muted); font-weight: 500; }
+        .mm-total { margin: 18px 0 0; text-align: center; font-size: 0.98rem; line-height: 1.55; color: var(--color-text); }
+        .mm-total span { color: var(--color-accent); font-weight: 600; }
+        @media (max-width: 600px) {
+            .mm-colhead { display: none; }
+            .mm-row { grid-template-columns: 1fr; gap: 5px; }
+            .mm-row > div:nth-child(2), .mm-row > div:nth-child(3) {
+                text-align: right; display: flex; justify-content: space-between; align-items: baseline;
+            }
+            .mm-row > div:nth-child(2)::before, .mm-row > div:nth-child(3)::before {
+                content: attr(data-label); font-size: 0.85rem; font-weight: 500;
+                color: var(--color-text-muted); text-transform: none; letter-spacing: 0;
+            }
+        }
         .multi-close {
             text-align: center; margin: 26px auto 0; max-width: 700px;
             font-family: var(--font-display); font-size: 1.2rem;
@@ -1009,7 +1036,26 @@
                         <p>Where it makes sense, your systems connect. Something entered in one shows up in the next, so the whole lot works as one.</p>
                     </div>
                 </div>
-                <p class="multi-close">The end goal isn't one system. It's four or five that run the business between them, <span>for nowhere near four or five times the price.</span></p>
+                <div class="multi-math">
+                    <span class="mm-badge">The sweet spot: three connected systems</span>
+                    <div class="mm-row mm-colhead">
+                        <div></div>
+                        <div>Implementation</div>
+                        <div>Monthly</div>
+                    </div>
+                    <div class="mm-row">
+                        <div class="mm-label">Your first system</div>
+                        <div class="mm-val full" data-label="Implementation">Full price</div>
+                        <div class="mm-val full" data-label="Monthly">Full price</div>
+                    </div>
+                    <div class="mm-row">
+                        <div class="mm-label">Every system after</div>
+                        <div class="mm-val" data-label="Implementation">About 50%</div>
+                        <div class="mm-val" data-label="Monthly">About 25%</div>
+                    </div>
+                </div>
+                <p class="mm-total">So three connected systems lands at roughly <span>twice the implementation of one, and one and a half times the monthly</span>. Not three times either.</p>
+                <p class="multi-close">The end goal isn't one system. It's four or five that run the business between them, <span>for around twice the monthly of your first.</span></p>
             </div>
             <p class="pricing-note">The monthly fee is all in: hosting, backups, bug fixes, small tweaks, and system administration are all covered. Every system is quoted individually after our chat, so these are starting points to give you a feel for what to expect. Not sure which one you are? Most people aren't at first. That's exactly what the free chat is for.</p>
         </div>
